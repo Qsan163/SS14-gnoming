@@ -700,19 +700,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: PirateCaptainIDCard
-  name: captain pirate ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: pirate
-  - type: Access
-    tags:
-    - Pirate
-    - CaptainPirate
-
-- type: entity
-  parent: IDCardStandard
   id: PsychologistIDCard
   name: psychologist ID card
   components:

@@ -1,0 +1,78 @@
+
+- type: entity
+  id: PiratesDebug
+  components:
+  - type: GameRule
+    minPlayers: 1
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/Shuttles/pirate_map.yml
+  - type: PiratesRule
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ CaptainPirate ]
+      fallbackRoles: [ Pirate ]
+      startingGear: PirateCaptainGear
+      spawnerPrototype: SpawnPointCaptainPirate
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Pirate
+      - type: PirateAccent
+      mindRoles:
+      - MindRoleCaptainPirate
+    - prefRoles: [ Pirate ]
+      fallbackRoles: [ CaptainPirate ]
+      spawnerPrototype: SpawnPointPrivateer
+      max: 14
+      playerRatio: 1
+      startingGear: PirateGear
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Pirate
+      - type: PirateAccent
+      mindRoles:
+      - MindRolePirate
+
+- type: entity
+  id: Pirates
+  components:
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/Shuttles/pirate.yml
+  - type: PiratesRule
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ CaptainPirate ]
+      fallbackRoles: [ Pirate ]
+      startingGear: PirateCaptainGear
+      spawnerPrototype: SpawnPointCaptainPirate
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Pirate
+      - type: PirateAccent
+      mindRoles:
+      - MindRoleCaptainPirate
+    - prefRoles: [ Pirate ]
+      fallbackRoles: [ CaptainPirate ]
+      spawnerPrototype: SpawnPointPrivateer
+      max: 14
+      playerRatio: 1
+      startingGear: PirateGear
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Pirate
+      - type: PirateAccent
+      mindRoles:
+      - MindRolePirate
