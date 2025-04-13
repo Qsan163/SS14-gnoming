@@ -1,7 +1,9 @@
 ﻿using Robust.Shared.Audio;
 using Content.Server.RoundEnd;
-
-namespace Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking;
+using Content.Server.Imperial.PiratesNewHorizon.Rules.Systems;
+namespace Content.Server.Imperial.PiratesNewHorizon.Rules.Components;
 
 [RegisterComponent, Access(typeof(PiratesRuleSystem))]
 public sealed partial class PiratesRuleComponent : Component

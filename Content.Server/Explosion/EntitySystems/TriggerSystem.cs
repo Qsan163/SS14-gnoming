@@ -95,6 +95,7 @@ namespace Content.Server.Explosion.EntitySystems
             InitializeTimedCollide();
             InitializeVoice();
             InitializeMobstate();
+            // Imperial Space Pirates: New Horizon
             InitializeOnHeat();
 
             SubscribeLocalEvent<TriggerOnSpawnComponent, MapInitEvent>(OnSpawnTriggered);
@@ -404,6 +405,7 @@ namespace Content.Server.Explosion.EntitySystems
             UpdateTimer(frameTime);
             UpdateTimedCollide(frameTime);
             UpdateRepeat();
+            // Imperial Space Pirates:New Horizon
             UpdateHeat();
         }
 

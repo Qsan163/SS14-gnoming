@@ -267,6 +267,7 @@ public sealed partial class CargoSystem
                 }
 
                 if (_blacklistQuery.HasComponent(ent))
+                    //Imperial Space Pirates: New Horizon
                     if(palletComp.AvoidSellBlacklist == false)
                         continue;
 

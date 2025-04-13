@@ -36,7 +36,11 @@ using Content.Server.RoundEnd;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Server.Maps;
-namespace Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking;
+using Content.Server.Imperial.PiratesNewHorizon.Rules.Components;
+
+namespace Content.Server.Imperial.PiratesNewHorizon.Rules.Systems;
 
 
 public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>

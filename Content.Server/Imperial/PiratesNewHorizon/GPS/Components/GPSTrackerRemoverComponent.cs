@@ -1,6 +1,9 @@
 using Robust.Shared.Audio;
 using Content.Shared.Storage;
-namespace Content.Server.Cargo.Components;
+using Content.Server.Cargo;
+
+
+namespace Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
 
 
 /// <summary>

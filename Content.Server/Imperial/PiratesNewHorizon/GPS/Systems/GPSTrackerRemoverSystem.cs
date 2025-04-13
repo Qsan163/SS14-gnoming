@@ -11,8 +11,12 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Content.Server.Storage;
 using Content.Shared.Storage;
+using Content.Server.Cargo;
+using Content.Server.Cargo.Systems;
+using Content.Shared.Cargo.Systems;
+using Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
 
-namespace Content.Server.Cargo.Systems;
+namespace Content.Server.Imperial.PiratesNewHorizon.GPS.Systems;
 public sealed class GPSTrackerRemoverSystem : EntitySystem
 {
     [Dependency] private readonly UseDelaySystem _useDelay = default!;

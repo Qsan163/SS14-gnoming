@@ -24,6 +24,11 @@ public sealed partial class CargoPalletComponent : Component
     [DataField]
     public BuySellType PalletType;
 
+    //Imperial Space Pirates: New Horizon
+
+    /// <summary>
+    /// If pallets allows selling blacklisted entities (e.g. players, nukes)
+    /// </summary>
     [DataField]
     public bool AvoidSellBlacklist = false;
 }

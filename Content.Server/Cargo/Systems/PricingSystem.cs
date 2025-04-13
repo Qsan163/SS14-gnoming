@@ -16,6 +16,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
 using Content.Shared.Research.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
@@ -84,6 +85,7 @@ public sealed class PricingSystem : EntitySystem
         }
     }
 
+// Imperial Space Pirates: New Horizon; Start
     private double GetGPSTrackerPrice(EntityUid uid)
     {
         double price = 0;
@@ -98,7 +100,7 @@ public sealed class PricingSystem : EntitySystem
         }
         return price;
     }
-
+// Imperial Space Pirates: New Horizon; End
     private void CalculateMobPrice(EntityUid uid, MobPriceComponent component, ref PriceCalculationEvent args)
     {
         // TODO: Estimated pricing.
@@ -256,6 +258,7 @@ public sealed class PricingSystem : EntitySystem
         if (oldPrice.Equals(price))
         {
             price += GetStaticPrice(uid);
+            //Imperial Space Pirates: New Horizon
             price += GetGPSTrackerPrice(uid);
         }
 

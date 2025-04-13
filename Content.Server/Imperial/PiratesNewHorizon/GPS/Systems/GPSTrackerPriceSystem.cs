@@ -1,6 +1,8 @@
 
 using Content.Shared.Examine;
-namespace Content.Server.Cargo;
+using Content.Server.Cargo;
+using Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
+namespace Content.Server.Imperial.PiratesNewHorizon.GPS.Systems;
 
 public sealed class GPSTrackerPriceSystem : EntitySystem
 {

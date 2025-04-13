@@ -88,10 +88,13 @@ namespace Content.Server.PowerSink
                         break;
                     }
                 }
+                //Imperial Space Pirates: New Horizon; Start
                 if(component.ExplodeOnFullCharge != true)
                 {
                     return;
                 }
+                //Imperial Space Pirates: New Horizon; End
+                
                 // Check for explosion
                 if (battery.CurrentCharge < battery.MaxCharge)
                     continue;
@@ -131,6 +134,7 @@ namespace Content.Server.PowerSink
 
             _chat.DispatchStationAnnouncement(
                 station.Value,
+                //Imperial Space Pirates:New Horizon
                 Loc.GetString(powerSinkComponent.ImminentExplosionMessage),
                 playDefaultSound: true,
                 colorOverride: Color.Yellow

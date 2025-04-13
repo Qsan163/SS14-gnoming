@@ -7,8 +7,9 @@ using Robust.Shared.Prototypes;
 using System.Text.Json.Serialization;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Timing;
+using Content.Server.EntityEffects.Effects;
 
-namespace Content.Server.Chemistry.EntityEffects.Effect
+namespace Content.Server.Imperial.PiratesNewHorizon.EntityEffects
 {
     [UsedImplicitly]
     public sealed partial class ResistChange : EntityEffect

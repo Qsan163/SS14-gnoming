@@ -1,4 +1,9 @@
+using Robust.Shared.Audio;
+using Content.Shared.Storage;
+using Content.Server.Cargo;
 
+
+namespace Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
 /// <summary>
 /// This is used for pricing valuable items, when "GPS tracker" is removed out of them
 /// Used not to change the default price of such things as high-risk, but increasing the price with GPS tracker remover
