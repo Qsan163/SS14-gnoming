@@ -1,5 +1,5 @@
 using Robust.Shared.Audio;
-namespace Content.Server.Explosion.Components;
+namespace Content.Server.Imperial.PiratesNewHorizon.Trigger.Components;
 
 
 

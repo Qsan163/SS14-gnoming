@@ -16,19 +16,24 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Atmos.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Random;
+using Content.Server.Imperial.PiratesNewHorizon.Trigger.Components;
+using Content.Server.Explosion.EntitySystems;
 
-namespace Content.Server.Explosion.EntitySystems;
+namespace Content.Server.Imperial.PiratesNewHorizon.Trigger.Systems;
 
-public sealed partial class TriggerSystem
+public sealed class TriggerSystemOnHeat : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
-    private void InitializeOnHeat()
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly TriggerSystem _triggerSystem = default!;
+    public override void Initialize()
     {
         SubscribeLocalEvent<TriggerOnHeatComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<TriggerOnHeatComponent, InteractUsingEvent>(OnUsing);
     }
-    private void OnRandomTimerHeatTriggerMapInit(Entity<RandomTimerTriggerComponent> ent, ref MapInitEvent args)
+    public void OnRandomTimerHeatTriggerMapInit(Entity<RandomTimerTriggerComponent> ent, ref MapInitEvent args)
     {
         var (_, comp) = ent;
 
@@ -37,8 +42,9 @@ public sealed partial class TriggerSystem
 
         heatTriggerComp.Delay = _random.NextFloat(comp.Min, comp.Max);
     }
-    private void UpdateHeat()
+    public override void Update(float frameTime)
     {
+        base.Update(frameTime);
 
         List<Entity<TriggerOnHeatComponent>> toUpdate = new();
         var query = EntityQueryEnumerator<TriggerOnHeatComponent, TransformComponent>();
@@ -58,7 +64,7 @@ public sealed partial class TriggerSystem
         {
             if(!TryComp(a, out TriggerOnHeatComponent? heatTrigger))
                 return;
-            HandleTimerTrigger(
+            _triggerSystem.HandleTimerTrigger(
                 a,
                 null,
                 heatTrigger.Delay,
@@ -73,7 +79,7 @@ public sealed partial class TriggerSystem
     {
         if (!component.ActivateHotItems || !CheckHot(args.Used))
             return;
-        HandleTimerTrigger(
+        _triggerSystem.HandleTimerTrigger(
             uid,
             args.User,
             component.Delay,
@@ -86,7 +92,7 @@ public sealed partial class TriggerSystem
 
         if (!component.ActivateHotItems || !CheckHot(args.Used))
             return;
-        HandleTimerTrigger(
+        _triggerSystem.HandleTimerTrigger(
             uid,
             args.User,
             component.Delay,

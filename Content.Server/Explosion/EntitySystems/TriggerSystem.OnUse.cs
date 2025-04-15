@@ -5,13 +5,14 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Sticky;
 using Content.Shared.Verbs;
-
+using Content.Server.Imperial.PiratesNewHorizon.Trigger.Systems;
+using Content.Server.Imperial.PiratesNewHorizon.Trigger.Components;
 namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class TriggerSystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-
+    [Dependency] private readonly TriggerSystemOnHeat _triggerHeat = default!;
     private void InitializeOnUse()
     {
         SubscribeLocalEvent<OnUseTimerTriggerComponent, UseInHandEvent>(OnTimerUse);
@@ -110,9 +111,10 @@ public sealed partial class TriggerSystem
             return;
 
         timerTriggerComp.Delay = _random.NextFloat(comp.Min, comp.Max);
+        // Imperial Space Pirates: New Horizon
         if(!TryComp<TriggerOnHeatComponent>(ent, out var heatTriggerComp))
             return;
-        OnRandomTimerHeatTriggerMapInit(ent, ref args);
+        _triggerHeat.OnRandomTimerHeatTriggerMapInit(ent, ref args);
     }
 
     private void CycleDelay(OnUseTimerTriggerComponent component, EntityUid user)
