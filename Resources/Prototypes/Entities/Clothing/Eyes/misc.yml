@@ -28,6 +28,7 @@
     sprite: Clothing/Eyes/Misc/eyepatch.rsi
   - type: EyeProtection
     protectionTime: 5
+    #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
       - Eyepatch

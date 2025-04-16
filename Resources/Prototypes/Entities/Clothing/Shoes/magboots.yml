@@ -59,11 +59,12 @@
     - HighRiskItem
   - type: StaticPrice
     price: 750
+  - type: StealTarget
+    stealGroup: ClothingShoesBootsMagAdv
+  #Imperial Space Pirates: New Horizon
   - type: GPSTrackerPrice
     startprice: 0
     endprice: 12000
-  - type: StealTarget
-    stealGroup: ClothingShoesBootsMagAdv
 
 - type: entity
   parent: [ClothingShoesBootsMagBase]

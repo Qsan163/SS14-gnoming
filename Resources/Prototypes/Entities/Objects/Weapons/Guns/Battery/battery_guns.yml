@@ -608,17 +608,17 @@
     - Sidearm
     - WeaponAntiqueLaser
   - type: StaticPrice
-    price: 0
-  - type: GPSTrackerPrice
-    startprice: 750
-    endprice: 50000
+    price: 750
   - type: StealTarget
     stealGroup: WeaponAntiqueLaser
   - type: SentienceTarget # I hope this is only the captain's gun
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-
+  - type: GPSTrackerPrice
+    startprice: 0
+    endprice: 50000
+    
 - type: entity
   name: advanced laser pistol
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband]
@@ -799,6 +799,7 @@
     autoRechargeRate: 24
     autoRechargePause: true
     autoRechargePauseTime: 30
+  #Imperial Space Pirates: New Horizon
   - type: StaticPrice
     price: 2000
   - type: GPSTrackerPrice

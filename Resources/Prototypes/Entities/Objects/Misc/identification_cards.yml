@@ -121,11 +121,12 @@
     - HighRiskItem
   - type: StaticPrice
     price: 2000
+  - type: StealTarget
+    stealGroup: CaptainIDCard
+  #Imperial Space Pirates: New Horizon
   - type: GPSTrackerPrice
     startprice: 0
     endprice: 10000
-  - type: StealTarget
-    stealGroup: CaptainIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -696,6 +697,7 @@
     - state: pirate
   - type: Access
     tags:
+    #Imperial Space Pirates: New Horizon
     - Pirate
 
 - type: entity

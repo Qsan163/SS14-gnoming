@@ -24,15 +24,15 @@
   - type: StationLimitedNetwork
   - type: StaticPrice
     price: 500
-  - type: GPSTrackerPrice
-    startprice: 0
-    endprice: 5500
   - type: Tag
     tags:
     - HighRiskItem
   - type: StealTarget
     stealGroup: HandheldCrewMonitor
-
+  #Imperial Space Pirates: New Horizon
+  - type: GPSTrackerPrice
+    startprice: 0
+    endprice: 5500
 - type: entity
   id: HandheldCrewMonitorEmpty
   parent: HandheldCrewMonitor

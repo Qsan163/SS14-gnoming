@@ -250,13 +250,13 @@
       prototype: ComputerId
     - type: StaticPrice
       price: 750
-    - type: GPSTrackerPrice
-      startprice: 0
-      endprice: 8000
     - type: Tag
       tags:
       - HighRiskItem
-
+    #Imperial Space Pirates: New Horizon
+    - type: GPSTrackerPrice
+      startprice: 0
+      endprice: 8000
 - type: entity
   parent: BaseComputerCircuitboard
   id: BodyScannerComputerCircuitboard

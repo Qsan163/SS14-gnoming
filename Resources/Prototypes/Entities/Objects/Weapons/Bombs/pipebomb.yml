@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseItem, BaseMajorContraband]
+  parent: [BaseItem, BaseMajorContraband] #Imperial Space Pirates: New Horizon
   id: PipeBomb
   name: pipe bomb
   description: An improvised explosive made from pipes and wire.
@@ -31,6 +31,7 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+    #Imperial Space Pirates: New Horizon
   - type: TriggerOnHeat
     delay: 5
     initialBeepDelay: 0

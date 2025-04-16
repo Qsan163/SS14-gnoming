@@ -606,6 +606,7 @@
     stealGroup: BoxFolderQmClipboard
   - type: StaticPrice
     price: 2000
+  #Imperial Space Pirates: New Horizon
   - type: GPSTrackerPrice
     startprice: 0
     endprice: 7250

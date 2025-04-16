@@ -65,7 +65,8 @@
   - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
-  - type: Tag
+    #Imperial Space Pirates: New Horizon
+  - type: Tag 
     tags:
     - Meson
 
@@ -256,6 +257,7 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    #Imperial Space Pirates: New Horizon
     - type: Tag
       tags:
       - HudChemical

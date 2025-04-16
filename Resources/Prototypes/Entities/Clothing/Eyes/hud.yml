@@ -29,6 +29,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+    #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
     - HudDiagnostic
@@ -87,6 +88,7 @@
   - type: StealTarget
     stealGroup: ClothingEyesHudBeer
   - type: SolutionScanner
+  #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
     - HudBeer
@@ -241,6 +243,7 @@
     sprite: Clothing/Eyes/Hud/medpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medpatch.rsi
+    #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
     - EyepatchMedical
@@ -263,6 +266,7 @@
     sprite: Clothing/Eyes/Hud/secpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/secpatch.rsi
+    #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
     - EyepatchSecurity
@@ -285,6 +289,7 @@
     sprite: Clothing/Eyes/Hud/beerpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/beerpatch.rsi
+    #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
     - EyepatchBeer
@@ -308,6 +313,7 @@
     sprite: Clothing/Eyes/Hud/diagpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/diagpatch.rsi
+    #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
     - EyepatchDiagnostic
