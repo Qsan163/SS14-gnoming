@@ -81,3 +81,12 @@
     sprite: Imperial/PiratesNewHorizon/clothing/uniform/uni_male_c.rsi
   - type: AddAccentClothing
     accent: PirateAccent
+
+- type: entity
+  parent: ClothingUniformJumpsuitPirate
+  id: ClothingUniformJumpsuitPirateNewHorizon
+  components:
+  - type: Sprite
+    sprite: Imperial/PiratesNewHorizon/clothing/uniform/pirate_uni.rsi
+  - type: Clothing
+    sprite: Imperial/PiratesNewHorizon/clothing/uniform/pirate_uni.rsi

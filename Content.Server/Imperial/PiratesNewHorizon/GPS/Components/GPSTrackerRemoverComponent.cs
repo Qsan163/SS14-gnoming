@@ -17,7 +17,7 @@ public sealed partial class GPSTrackerRemoverComponent : Component
     public float Delay = 10f;
 
     [DataField("useSound")]
-    public SoundSpecifier UseSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/weak_bang.ogg");
+    public SoundSpecifier UseSound { get; set; } = new SoundPathSpecifier("/Audio/Imperial/PiratesNewHorizon/weak_bang.ogg");
 
     /// <summary>
     /// The entity to spawn when GPS tracker is extracted

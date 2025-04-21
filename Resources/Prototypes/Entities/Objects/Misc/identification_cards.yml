@@ -697,8 +697,8 @@
     - state: pirate
   - type: Access
     tags:
-    #Imperial Space Pirates: New Horizon
-    - Pirate
+    - NuclearOperative
+    - SyndicateAgent
 
 - type: entity
   parent: IDCardStandard

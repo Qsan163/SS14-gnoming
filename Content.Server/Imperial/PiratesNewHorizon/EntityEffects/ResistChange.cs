@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Timing;
 using Content.Server.EntityEffects.Effects;
-
+using Content.Shared.Imperial.PiratesNewHorizon.Reagent.Components;
 namespace Content.Server.Imperial.PiratesNewHorizon.EntityEffects
 {
     [UsedImplicitly]

@@ -15,7 +15,7 @@ using Content.Server.Cargo;
 using Content.Server.Cargo.Systems;
 using Content.Shared.Cargo.Systems;
 using Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
-
+using Content.Shared.Imperial.PiratesNewHorizon.GPS.Events;
 namespace Content.Server.Imperial.PiratesNewHorizon.GPS.Systems;
 public sealed class GPSTrackerRemoverSystem : EntitySystem
 {

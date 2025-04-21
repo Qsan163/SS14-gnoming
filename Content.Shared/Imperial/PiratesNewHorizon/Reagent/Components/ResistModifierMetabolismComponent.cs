@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
-namespace Content.Shared.Chemistry.Components
+namespace Content.Shared.Imperial.PiratesNewHorizon.Reagent.Components
 {
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class ResistModifierMetabolismComponent : Component

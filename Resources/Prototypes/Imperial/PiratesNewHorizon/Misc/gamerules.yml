@@ -76,7 +76,7 @@
         - NamesPirateFirst
         - NamesPirateLast
       mindRoles:
-    - MindRoleCaptainPirate
+      - MindRoleCaptainPirate
     - prefRoles: [ Pirate ]
       fallbackRoles: [ CaptainPirate ]
       spawnerPrototype: SpawnPointPrivateer

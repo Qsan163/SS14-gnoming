@@ -39,6 +39,7 @@ using Content.Server.Maps;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking;
 using Content.Server.Imperial.PiratesNewHorizon.Rules.Components;
+using Content.Server.Imperial.PiratesNewHorizon.Roles;
 
 namespace Content.Server.Imperial.PiratesNewHorizon.Rules.Systems;
 
