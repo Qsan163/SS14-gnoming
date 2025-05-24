@@ -32,7 +32,7 @@ namespace Content.Server.Imperial.ImperialBorgs
             SubscribeLocalEvent<BorgHypoComponent, GetVerbsEvent<AlternativeVerb>>(AddSwitchVerb);
             SubscribeLocalEvent<BorgHypoComponent, GetItemActionsEvent>(OnGetActions);
             SubscribeLocalEvent<BorgHypoComponent, ChangeReagentAction>(OnReagentAction);
-            SubscribeLocalEvent<BorgHypoComponent, ChangeReagentEvent>(OnReagentChange);
+            SubscribeNetworkEvent<ChangeReagentEvent>(OnReagentChange);
         }
 
         private void OnGetActions(EntityUid uid, BorgHypoComponent component, GetItemActionsEvent args)
@@ -49,20 +49,27 @@ namespace Content.Server.Imperial.ImperialBorgs
             args.Handled = true;
         }
 
-        private void OnReagentChange(EntityUid uid, BorgHypoComponent component, ChangeReagentEvent args)
+        private void OnReagentChange(ChangeReagentEvent msg)
         {
-            _sawmill.Info($"OnReagentChange: ReagentId={args.ReagentId}, Entity={args.Entity}");
+            var uid = GetEntity(msg.Entity);
+            if (!TryComp<BorgHypoComponent>(uid, out var component))
+            {
+                _sawmill.Warning($"Failed to get BorgHypoComponent for entity {uid}");
+                return;
+            }
 
-            if (args.ReagentId == null)
+            _sawmill.Info($"OnReagentChange: ReagentId={msg.ReagentId}, Entity={msg.Entity}");
+
+            if (msg.ReagentId == null)
                 return;
 
-            if (_prototypeManager.TryIndex(args.ReagentId, out ReagentPrototype? reagent))
+            if (_prototypeManager.TryIndex(msg.ReagentId, out ReagentPrototype? reagent))
             {
                 SwitchReagent(uid, component, reagent);
             }
             else
             {
-                _sawmill.Warning($"Failed to get ReagentPrototype for {args.ReagentId}");
+                _sawmill.Warning($"Failed to get ReagentPrototype for {msg.ReagentId}");
             }
         }
 
@@ -90,12 +97,18 @@ namespace Content.Server.Imperial.ImperialBorgs
         {
             _sawmill.Info($"SwitchReagent: uid={uid}, reagent={reagent?.ID}");
 
-            if (!TryComp<SolutionRegenerationComponent>(uid, out var regen) ||
-                !_solutionSystem.TryGetSolution(uid, regen.SolutionName, out var solution))
+            if (!TryComp<SolutionRegenerationComponent>(uid, out var solutionRegenerationComponent))
             {
-                _sawmill.Warning($"Failed to get solution for {uid}");
                 return;
             }
+
+            if (!_solutionSystem.TryGetSolution(uid, solutionRegenerationComponent.SolutionName, out var solution))
+            {
+                _sawmill.Warning($"Failed to get solution {solutionRegenerationComponent.SolutionName} for {uid}");
+                return;
+            }
+
+            _sawmill.Info($"Found solution {solutionRegenerationComponent.SolutionName} for {uid}");
 
             if (reagent != null)
             {
@@ -106,11 +119,13 @@ namespace Content.Server.Imperial.ImperialBorgs
                     return;
                 }
 
+                _sawmill.Info($"Found reagent at index {index}");
                 component.CurrentIndex = index;
             }
             else
             {
                 component.CurrentIndex = (component.CurrentIndex + 1) % component.Solutions.Count;
+                _sawmill.Info($"Cycling to next reagent at index {component.CurrentIndex}");
             }
 
             var newSolution = component.Solutions[component.CurrentIndex];
@@ -129,13 +144,17 @@ namespace Content.Server.Imperial.ImperialBorgs
 
             _sawmill.Info($"Switching to solution with primary reagent {primaryId}");
 
-            _solutionSystem.RemoveAllSolution(solution.Value);
+            // Очищаем текущий раствор
+            _sawmill.Info($"Clearing current solution");
+            solution.Value.Comp.Solution.RemoveAllSolution();
 
-            if (_solutionSystem.TryGetSolution(uid, "Generated", out var generated))
+            var generated = solutionRegenerationComponent.Generated;
+            var chemSolution = newSolution.ToChemSolution();
+
+            generated.RemoveAllSolution();
+            foreach (var reagentQuantity in newSolution.Reagents)
             {
-                _solutionSystem.RemoveAllSolution(generated.Value);
-                var chemSolution = newSolution.ToChemSolution();
-                _solutionSystem.TryAddSolution(generated.Value, chemSolution);
+                generated.AddReagent(reagentQuantity.ReagentId, reagentQuantity.Quantity);
             }
 
             component.CurrentReagentName = proto.LocalizedName;

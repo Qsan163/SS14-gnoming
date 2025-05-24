@@ -78,26 +78,32 @@
       - reagents:
         - ReagentId: Bicaridine
           Quantity: 1
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/brutekit.png
       - reagents:
         - ReagentId: Dermaline
           Quantity: 1
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/burnkit.png
       - reagents:
         - ReagentId: Dexalin
           Quantity: 1
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/o2kit.png
       - reagents:
         - ReagentId: Inaprovaline
           Quantity: 1
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/firstaid.png
       - reagents:
         - ReagentId: Hyronalin
           Quantity: 1
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/radkit.png
       - reagents:
         - ReagentId: Dylovene
           Quantity: 1
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/toxinkit.png
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-        - ReagentId: Epinephrine
+        - ReagentId: Bicaridine
           Quantity: 1
 
 - type: entity
@@ -176,26 +182,32 @@
       - reagents:
         - ReagentId: Bicaridine
           Quantity: 2
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/brutekit.png
       - reagents:
         - ReagentId: Dermaline
           Quantity: 2
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/burnkit.png
       - reagents:
         - ReagentId: Dexalin
           Quantity: 2
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/o2kit.png
       - reagents:
         - ReagentId: Inaprovaline
           Quantity: 2
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/firstaid.png
       - reagents:
         - ReagentId: Hyronalin
           Quantity: 2
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/radkit.png
       - reagents:
         - ReagentId: Dylovene
           Quantity: 2
+          Sprite: /Textures/Objects/Specific/Medical/firstaidkits.rsi/toxinkit.png
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-        - ReagentId: Epinephrine
+        - ReagentId: Bicaridine
           Quantity: 1
 
 - type: entity

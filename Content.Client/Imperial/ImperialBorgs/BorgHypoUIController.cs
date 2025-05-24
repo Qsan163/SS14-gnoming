@@ -27,6 +27,7 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly IEntityNetworkManager _net = default!;
 
     private ISawmill _sawmill = default!;
     private SimpleRadialMenu? _menu;
@@ -41,31 +42,18 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
         base.Initialize();
         _sawmill = _logManager.GetSawmill("borg.hypo");
         SubscribeNetworkEvent<OpenBorgHypoUIEvent>(OnOpenUI);
-
-        // Предварительное кэширование часто используемых прототипов
-        PreloadCommonReagents();
     }
 
-    private void PreloadCommonReagents()
-    {
-        var commonReagents = new[] { "Bicaridine", "Kelotane", "Dermaline", "Tricordrazine" };
-        foreach (var reagentId in commonReagents)
-        {
-            if (_prototypeManager.TryIndex(reagentId, out ReagentPrototype? proto))
-            {
-                CacheRadialOption(proto);
-            }
-        }
-    }
-
-    private RadialMenuOption CacheRadialOption(ReagentPrototype proto)
+    private RadialMenuOption CacheRadialOption(ReagentPrototype proto, Reagent reagent)
     {
         if (_cachedOptions.TryGetValue(proto.ID, out var cached))
             return cached;
 
+        var spritePath = reagent.Sprite ?? "/Textures/Interface/Misc/beakerlarge.png";
+
         var option = new RadialMenuActionOption<ReagentPrototype>(HandleRadialButtonClick, proto)
         {
-            Sprite = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Misc/beakerlarge.png")),
+            Sprite = new SpriteSpecifier.Texture(new ResPath(spritePath)),
             ToolTip = Loc.GetString(proto.LocalizedName)
         };
 
@@ -150,14 +138,17 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
 
         foreach (var solution in solutions)
         {
-            var primaryId = solution.GetPrimaryReagentId();
-            if (string.IsNullOrEmpty(primaryId) || !_prototypeManager.TryIndex(primaryId, out ReagentPrototype? proto))
+            if (solution.Reagents.Count == 0)
+                continue;
+
+            var reagent = solution.Reagents[0];
+            if (!_prototypeManager.TryIndex(reagent.ReagentId, out ReagentPrototype? proto))
                 continue;
 
             if (proto == null)
                 continue;
 
-            var option = CacheRadialOption(proto);
+            var option = CacheRadialOption(proto, reagent);
             models.Add(option);
         }
 
@@ -175,8 +166,8 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
         var netEntity = _entityManager.GetNetEntity(_activeHypo.Value);
         _sawmill.Info($"Sending ChangeReagentEvent: ReagentId={prototype.ID}, Entity={netEntity}");
 
-        var ev = new ChangeReagentEvent(prototype.ID, netEntity);
-        _entityManager.EventBus.RaiseEvent(EventSource.Local, ev);
+        var msg = new ChangeReagentEvent(prototype.ID, netEntity);
+        _net.SendSystemNetworkMessage(msg);
 
         _sawmill.Info($"Event sent");
         CloseMenu();

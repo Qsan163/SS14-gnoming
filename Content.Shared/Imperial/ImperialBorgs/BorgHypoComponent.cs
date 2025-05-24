@@ -70,6 +70,9 @@ namespace Content.Shared.Borgs
 
         [DataField("Quantity")]
         public float Quantity = 1.0f;
+
+        [DataField("Sprite")]
+        public string? Sprite = null;
     }
 
     [Serializable, NetSerializable]
