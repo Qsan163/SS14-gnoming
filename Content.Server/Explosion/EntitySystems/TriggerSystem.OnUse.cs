@@ -111,10 +111,11 @@ public sealed partial class TriggerSystem
             return;
 
         timerTriggerComp.Delay = _random.NextFloat(comp.Min, comp.Max);
-        // Imperial Space Pirates: New Horizon
+        // Imperial Space Pirates: New Horizon; Start
         if(!TryComp<TriggerOnHeatComponent>(ent, out var heatTriggerComp))
             return;
         _triggerHeat.OnRandomTimerHeatTriggerMapInit(ent, ref args);
+        // Imperial Space Pirates: New Horizon; End
     }
 
     private void CycleDelay(OnUseTimerTriggerComponent component, EntityUid user)

@@ -1834,11 +1834,13 @@
   id: PirateScoonerAltA
   equipment:
     jumpsuit: ClothingUniformJumpsuitPirate
+    #Imperial Space Pirates: New Horizon; Line Removed: "shoes: ClothingShoesBootsLaceup"
     shoes: ClothingShoesCaptainPirateBoots
     head: ClothingHeadBandRed
     id: PiratePDA
     back: ClothingBackpackSatchelLeather
     belt: ClothingBeltUtility
+    #Imperial Space Pirates: New Horizon; Line Removed: "ears: ClothingHeadsetFreelance"
     pocket1: WeaponPistolFlintlock
     pocket2: HandheldGPSBasic
   inhand:

@@ -16,8 +16,9 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
 using Content.Shared.Research.Prototypes;
+//Imperial Space Pirates: New Horizon
+using Content.Server.Imperial.PiratesNewHorizon.GPS.Components;
 
 namespace Content.Server.Cargo.Systems;
 

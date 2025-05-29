@@ -244,7 +244,7 @@ public sealed partial class CargoSystem
     {
         amount = 0;
         toSell = new HashSet<EntityUid>();
-
+        // Imperial Space: Pirates New Horizon
         foreach (var (palletUid, palletComp, _) in GetCargoPallets(gridUid, BuySellType.Sell))
         {
             // Containers should already get the sell price of their children so can skip those.
@@ -268,6 +268,7 @@ public sealed partial class CargoSystem
 
                 if (_blacklistQuery.HasComponent(ent))
                     //Imperial Space Pirates: New Horizon
+                    // Allows selling entities that are blacklisted using a component
                     if(palletComp.AvoidSellBlacklist == false)
                         continue;
 

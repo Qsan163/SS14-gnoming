@@ -57,7 +57,15 @@ public sealed class TriggerSystemOnHeat : EntitySystem
             if (environment.Temperature < trigger.ActivationTemperature)
                 continue;
 
-            toUpdate.Add((uid, trigger));
+            if(!TryComp(uid, out TriggerOnHeatComponent? heatTrigger))
+                return;
+            _triggerSystem.HandleTimerTrigger(
+                uid,
+                null,
+                heatTrigger.Delay,
+                heatTrigger.BeepInterval,
+                heatTrigger.InitialBeepDelay,
+                heatTrigger.BeepSound);
         }
 
         foreach (var a in toUpdate)

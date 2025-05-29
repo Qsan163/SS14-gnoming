@@ -596,3 +596,6 @@ PaxChemistryBottle: ChemistryBottlePax
 MuteToxinChemistryBottle: ChemistryBottleMuteToxin
 LeadChemistryBottle: ChemistryBottleLead
 ToxinChemistryBottle: ChemistryBottleToxin
+
+# 2025-05-27 Imperial Space; Обновление пайп бомбы
+PipeBomb: PipeBombNewRemastered

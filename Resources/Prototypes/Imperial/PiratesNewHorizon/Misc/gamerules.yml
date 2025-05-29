@@ -11,14 +11,14 @@
   - type: AntagLoadProfileRule
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/pirate_map.yml
+    mapPath: /Maps/Imperial/Maps/PiratesNewHorizon/pirate_map_debug.yml
   - type: PiratesRule
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ CaptainPirate ]
       fallbackRoles: [ Pirate ]
-      startingGear: PirateCaptainGear
+      startingGear: ImperialPirateCaptainGear
       spawnerPrototype: SpawnPointCaptainPirate
       components:
       - type: NpcFactionMember
@@ -28,6 +28,7 @@
         nameSegments:
         - NamesPirateFirst
         - NamesPirateLast
+        nameFormat: name-format-standard
       - type: PirateAccent
       mindRoles:
       - MindRoleCaptainPirate
@@ -36,7 +37,7 @@
       spawnerPrototype: SpawnPointPrivateer
       max: 14
       playerRatio: 1
-      startingGear: PirateGear
+      startingGear: ImperialPirateGear
       components:
       - type: NpcFactionMember
         factions:
@@ -45,6 +46,7 @@
         nameSegments:
         - NamesPirateFirst
         - NamesPirateLast
+        nameFormat: name-format-standard
       - type: PirateAccent
       mindRoles:
       - MindRolePirate
@@ -57,14 +59,14 @@
   - type: AntagLoadProfileRule
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/pirate_map.yml
+    mapPath: /Maps/Imperial/Maps/PiratesNewHorizon/pirate_map_debug.yml
   - type: PiratesRule
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ CaptainPirate ]
       fallbackRoles: [ Pirate ]
-      startingGear: PirateCaptainGear
+      startingGear: ImperialPirateCaptainGear
       spawnerPrototype: SpawnPointCaptainPirate
       components:
       - type: NpcFactionMember
@@ -75,14 +77,15 @@
         nameSegments:
         - NamesPirateFirst
         - NamesPirateLast
+        nameFormat: name-format-standard
       mindRoles:
       - MindRoleCaptainPirate
     - prefRoles: [ Pirate ]
       fallbackRoles: [ CaptainPirate ]
       spawnerPrototype: SpawnPointPrivateer
       max: 14
-      playerRatio: 1
-      startingGear: PirateGear
+      playerRatio: 7
+      startingGear: ImperialPirateGear
       components:
       - type: NpcFactionMember
         factions:
@@ -92,5 +95,6 @@
         nameSegments:
         - NamesPirateFirst
         - NamesPirateLast
+        nameFormat: name-format-standard
       mindRoles:
       - MindRolePirate

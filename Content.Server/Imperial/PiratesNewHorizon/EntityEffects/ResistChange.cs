@@ -48,7 +48,6 @@ namespace Content.Server.Imperial.PiratesNewHorizon.EntityEffects
             }
             var gainsorloses = gains ? (loses ? "both" : "gains") : (loses ? "loses" : "none");
             return Loc.GetString("reagent-effect-guidebook-resistance-change",
-                ("chance", Probability),
                 ("changes", ContentLocalizationManager.FormatList(modifiers)),
                 ("gainsorloses", gainsorloses),
                 ("time", StatusLifetime));
@@ -64,9 +63,9 @@ namespace Content.Server.Imperial.PiratesNewHorizon.EntityEffects
                 statusLifetime = StatusLifetime * reagentArgs.Scale.Float();
             }
 
-            IncreaseTimer(status, statusLifetime);
+            IncreaseTimer(status, statusLifetime, args.TargetEntity, args);
         }
-        public void IncreaseTimer(ResistModifierMetabolismComponent status, float time)
+        public void IncreaseTimer(ResistModifierMetabolismComponent status, float time, EntityUid uid, EntityEffectBaseArgs args)
         {
             var gameTiming = IoCManager.Resolve<IGameTiming>();
 
@@ -74,6 +73,7 @@ namespace Content.Server.Imperial.PiratesNewHorizon.EntityEffects
 
             status.ModifierTimer = TimeSpan.FromSeconds(offsetTime + time);
             status.Dirty();
+            args.EntityManager.Dirty(uid, status);
         }
     }
 }

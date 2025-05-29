@@ -1,5 +1,5 @@
 - type: startingGear
-  id: PirateGear
+  id: ImperialPirateGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitPirateNewHorizon
     back: ClothingBackpackSatchelLeather
@@ -10,7 +10,7 @@
     pocket1: AppraisalTool
 
 - type: startingGear
-  id: PirateCaptainGear
+  id: ImperialPirateCaptainGear
   parent: PirateGear
   equipment:
     id: CaptainPiratePDANewHorizon
@@ -19,7 +19,7 @@
     outerClothing: ClothingOuterCoatPirateNewHorizon
 
 - type: startingGear
-  id: PirateFirstmateGear
+  id: ImperialPirateFirstmateGear
   parent: PirateGear
   equipment:
     head: ClothingHeadHatPirateTricord
