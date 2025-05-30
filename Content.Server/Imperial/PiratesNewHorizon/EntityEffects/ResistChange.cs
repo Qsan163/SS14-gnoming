@@ -48,6 +48,7 @@ namespace Content.Server.Imperial.PiratesNewHorizon.EntityEffects
             }
             var gainsorloses = gains ? (loses ? "both" : "gains") : (loses ? "loses" : "none");
             return Loc.GetString("reagent-effect-guidebook-resistance-change",
+                ("chance", Probability),
                 ("changes", ContentLocalizationManager.FormatList(modifiers)),
                 ("gainsorloses", gainsorloses),
                 ("time", StatusLifetime));
