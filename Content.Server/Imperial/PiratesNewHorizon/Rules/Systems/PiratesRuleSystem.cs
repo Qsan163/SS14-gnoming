@@ -35,7 +35,8 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
     
     private void OnGetBriefing(Entity<PirateRoleComponent> role, ref GetBriefingEvent args)
     {
-        args.Append(Loc.GetString("pirates-briefing"));
+        args.Append(Loc.GetString("pirate-welcome"));
+        args.Append(Loc.GetString("pirate-briefing"));
     }
     
     private void OnRuleLoadedGrids(Entity<PiratesRuleComponent> ent, ref RuleLoadedGridsEvent args)
