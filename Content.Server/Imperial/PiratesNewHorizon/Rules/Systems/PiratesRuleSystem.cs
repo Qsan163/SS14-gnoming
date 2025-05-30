@@ -11,6 +11,9 @@ using Robust.Shared.Maths;
 using Content.Server.Imperial.PiratesNewHorizon.Rules.Components;
 using Content.Server.Roles;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
+using Content.Shared.Mind;
+using Robust.Server.Player;
 
 namespace Content.Server.Imperial.PiratesNewHorizon.Rules.Systems;
 
@@ -18,6 +21,8 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PricingSystem _pricingSystem = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly IPlayerManager _players = default!;
 
     public override void Initialize()
     {
@@ -135,7 +140,9 @@ public sealed class PiratesRuleSystem : GameRuleSystem<PiratesRuleComponent>
         {
             if (TryComp(pirate, out MindComponent? mind))
             {
-                ev.AddLine($"- {mind.CharacterName} ({mind.Session?.Name})");
+                if (!_players.TryGetSessionById(mind.UserId, out var session))
+                    return;
+                ev.AddLine($"- {mind.CharacterName} ({session.Name})");
             }
         }
     }
