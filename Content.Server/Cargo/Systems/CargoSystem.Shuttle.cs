@@ -8,6 +8,8 @@ using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+//Imperial Space Pirates: New Horizon
+using Content.Shared.Stacks;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -235,29 +237,38 @@ public sealed partial class CargoSystem
 
         if (!SellPallets(gridUid, station, out var goods))
             return;
-
-        var baseDistribution = CreateAccountDistribution((station, bankAccount));
-        foreach (var (_, sellComponent, value) in goods)
+        //Imperial Space Pirates: New Horizon; Start
+        if (component.SpawnStack == false)
         {
-            Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
-            if (sellComponent != null)
+            var baseDistribution = CreateAccountDistribution((station, bankAccount));
+            foreach (var (_, sellComponent, value) in goods)
             {
-                var cut = _lockboxCutEnabled ? bankAccount.LockboxCut : bankAccount.PrimaryCut;
-                distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
+                Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
+                if (sellComponent != null)
                 {
-                    { sellComponent.OverrideAccount, cut },
-                    { bankAccount.PrimaryAccount, 1.0 - cut },
-                };
-            }
-            else
-            {
-                distribution = baseDistribution;
-            }
+                    var cut = _lockboxCutEnabled ? bankAccount.LockboxCut : bankAccount.PrimaryCut;
+                    distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
+                        {
+                            { sellComponent.OverrideAccount, cut },
+                            { bankAccount.PrimaryAccount, 1.0 - cut },
+                        };
+                }
+                else
+                {
+                    distribution = baseDistribution;
+                }
 
-            UpdateBankAccount((station, bankAccount), (int) Math.Round(value), distribution, false);
+                UpdateBankAccount((station, bankAccount), (int)Math.Round(value), distribution, false);
+            }
+            Dirty(station, bankAccount);
         }
-
-        Dirty(station, bankAccount);
+        else
+        {
+            var totalCash = goods.Sum(t => t.Item3);
+            var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
+            _stack.Spawn((int)totalCash, stackPrototype, xform.Coordinates);
+        }
+        //Imperial Space Pirates: New Horizon; End   
         _audio.PlayPvs(ApproveSound, uid);
         UpdatePalletConsoleInterface(uid);
     }

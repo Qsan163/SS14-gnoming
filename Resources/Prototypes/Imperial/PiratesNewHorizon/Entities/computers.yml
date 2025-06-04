@@ -30,6 +30,7 @@
     - Anchorable
   - type: CargoPalletConsole
     cashType: "Doubloon"
+    spawnStack: true
   - type: PointLight
     radius: 1.5
     energy: 1.6
