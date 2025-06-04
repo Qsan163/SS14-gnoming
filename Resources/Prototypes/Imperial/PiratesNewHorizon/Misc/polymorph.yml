@@ -1,12 +1,10 @@
 - type: polymorph
-  id: BlackRavenMorph
+  id: AbominationMorph
   configuration:
-    entity: MobBlackRavenPirate
+    entity: MobAbominationPiratesNewHorizon
     forced: true
     transferName: false
     transferHumanoidAppearance: true
     inventory: None
-    revertOnDeath: true
+    revertOnDeath: false
     revertOnCrit: false
-    duration: 60
-    cooldown: 63

@@ -156,16 +156,16 @@
   categories:
   - PiratesMedicine
 #idk, but is pretty great, also has a lot of dmg
-- type: listing
-  id: PirateCatalogGiga
-  name: pirate-medicine-giga-name
-  description: pirate-medicine-giga-description
-  icon: { sprite: /Textures/Imperial/PiratesNewHorizon/gigapirate_potion.rsi, state: icon }
-  productEntity: MuddyHarbourBottle
-  cost: 
-    Doubloon: 62500
-  categories:
-  - PiratesMedicine
+#- type: listing
+#  id: PirateCatalogGiga
+#  name: pirate-medicine-giga-name
+#  description: pirate-medicine-giga-description
+#  icon: { sprite: /Textures/Imperial/PiratesNewHorizon/gigapirate_potion.rsi, state: icon }
+#  productEntity: MuddyHarbourBottle
+#  cost: 
+#    Doubloon: 62500
+#  categories:
+#  - PiratesMedicine
 
 #BOOZE
 - type: listing
