@@ -125,7 +125,7 @@
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
-    # Imperial "OperationalERT-Cleaners" Start
+    # Imperial "OperationalERTCleaners" Start
     - type: SolutionDynamicColorOfStamp
       checkValidRole: true
       roleName: Уборщик
@@ -138,7 +138,7 @@
         params:
           volume: -2
           maxDistance: 5
-    # Imperial "OperationalERT-Cleaners" End
+    # Imperial "OperationalERTCleaners" End
 
 - type: entity
   name: wet floor sign

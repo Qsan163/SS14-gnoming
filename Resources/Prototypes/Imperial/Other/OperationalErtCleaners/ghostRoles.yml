@@ -1,16 +1,16 @@
 - type: entity
-  id: SpawnERTWeakenedJunitorEVAPreset
+  id: SpawnERTWeakenedJanitorEVAPreset
   name: ghost role ERTWeakenedJunitor spawn point
   parent: MarkerBase
   components:
     - type: GhostRole
-      name: ertcall-junitor-eva-name
-      description: ertcall-junitor-eva-desc
-      rules: ertcall-junitor-eva-rules
+      name: ertcall-janitor-eva-name
+      description: ertcall-janitor-eva-desc
+      rules: ertcall-janitor-eva-rules
       raffle:
         settings: short
     - type: GhostRoleMobSpawner
-      prototype: ERTWeakenedJunitorEVAPreset
+      prototype: ERTWeakenedJanitorEVAPreset
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
