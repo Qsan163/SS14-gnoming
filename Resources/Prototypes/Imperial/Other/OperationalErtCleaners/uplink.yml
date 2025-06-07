@@ -184,10 +184,30 @@
   - ERTUplinkJanitorModified
 
 - type: listing
+  id: ErtCallUplinkClothingBackpackDuffelWithHydra
+  name: ert-uplink-janitor-clothingbackpackduffelwithhydra-name
+  description: ert-uplink-janitor-clothingbackpackduffelwithhydra-desc
+  productEntity: ClothingBackpackDuffelWithHydra
+  cost:
+    BlueSpaceCube: 10
+  categories:
+  - ERTUplinkJanitorModified
+
+- type: listing
   id: ErtCallUplinkMegaSpaceCleanerSprayBottleFull
   name: ert-uplink-janitor-megaspacecleanerspraybottlefull-name
   description: ert-uplink-janitor-megaspacecleanerspraybottlefull-desc
   productEntity: MegaSpaceCleanerSprayBottleFull
+  cost:
+    BlueSpaceCube: 14
+  categories:
+  - ERTUplinkJanitorModified
+
+- type: listing
+  id: ErtCallUplinkCrateERTSpaceSprayNozzle
+  name: ert-uplink-janitor-crateertspacespraynozzler-name
+  description: ert-uplink-janitor-crateertspacespraynozzler-desc
+  productEntity: CrateERTSpaceSprayNozzle
   cost:
     BlueSpaceCube: 14
   categories:

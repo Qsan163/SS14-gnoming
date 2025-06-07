@@ -23,30 +23,25 @@ public sealed class SolutionDynamicColorOfStampSystem : EntitySystem
 
     public void OnStampDynamicColor(EntityUid uid, SolutionDynamicColorOfStampComponent comp, ref SolutionContainerChangedEvent args)
     {
-        var colorSocution = args.Solution.GetColor(_protoManager);
+        var colorSolution = args.Solution.GetColor(_protoManager);
 
-        /// do not stamp if the mop is reagent-free (default color = white)
         if (args.Solution.Volume == FixedPoint2.Zero)
         {
             RemComp<StampComponent>(uid);
+            return;
         }
-        else
+
+        var stampComp = EnsureComp<StampComponent>(uid);
+
+        if (comp.CheckValidRole && comp.RoleName != null)
         {
-            if (!TryComp<StampComponent>(uid, out var stampComp))
-                return;
-
-            if (comp.CheckValidRole)
+            if (TryGetItemOwner(uid, out var user) && !IsUserDefiniteJob(user.Value, comp))
             {
-                if (!TryGetItemOwner(uid, out var user) || user == null)
-                    return;
-
-                if (!IsUserDefiniteJob(user.Value, comp))
-                {
-                    stampComp.StampedName = comp.FalseStampedName;
-                }
+                stampComp.StampedName = comp.FalseStampedName;
             }
-            stampComp.StampedColor = colorSocution;
         }
+
+        stampComp.StampedColor = colorSolution;
     }
 
     private bool IsUserDefiniteJob(EntityUid user, SolutionDynamicColorOfStampComponent comp)
