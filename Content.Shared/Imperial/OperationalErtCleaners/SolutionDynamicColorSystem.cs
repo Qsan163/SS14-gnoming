@@ -2,9 +2,9 @@ using Content.Shared.Imperial.OperationalErtCleaners.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Roles;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Hands.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 
@@ -15,7 +15,6 @@ public sealed class SolutionDynamicColorOfStampSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {
@@ -27,28 +26,30 @@ public sealed class SolutionDynamicColorOfStampSystem : EntitySystem
         var colorSocution = args.Solution.GetColor(_protoManager);
 
         /// do not stamp if the mop is reagent-free (default color = white)
-        if (colorSocution.Equals(Color.White.WithAlpha(0)))
+        if (args.Solution.Volume == FixedPoint2.Zero)
         {
             RemComp<StampComponent>(uid);
         }
         else
         {
-            var stamp = EnsureComp<StampComponent>(uid);
+            if (!TryComp<StampComponent>(uid, out var stampComp))
+                return;
+
             if (comp.CheckValidRole)
             {
-                if (!TryGetUserHoldingItem(uid, out var user) || user == null)
+                if (!TryGetItemOwner(uid, out var user) || user == null)
                     return;
 
-                if (!IsUserJanitor(user.Value, comp))
+                if (!IsUserDefiniteJob(user.Value, comp))
                 {
-                    stamp.StampedName = comp.FalseStampedName;
+                    stampComp.StampedName = comp.FalseStampedName;
                 }
             }
-            stamp.StampedColor = colorSocution;
+            stampComp.StampedColor = colorSocution;
         }
     }
 
-    private bool IsUserJanitor(EntityUid user, SolutionDynamicColorOfStampComponent comp)
+    private bool IsUserDefiniteJob(EntityUid user, SolutionDynamicColorOfStampComponent comp)
     {
         if (string.IsNullOrEmpty(comp.RoleName))
             return false;
@@ -69,18 +70,18 @@ public sealed class SolutionDynamicColorOfStampSystem : EntitySystem
         return false;
     }
 
-    private bool TryGetUserHoldingItem(EntityUid item, [NotNullWhen(true)] out EntityUid? user)
+    private bool TryGetItemOwner(EntityUid item, [NotNullWhen(true)] out EntityUid? owner)
     {
-        user = null;
+        owner = null;
 
-        var query = EntityQueryEnumerator<HandsComponent>();
-        while (query.MoveNext(out var uid, out var hands))
+        var query = EntityQueryEnumerator<MetaDataComponent, ContainerManagerComponent>();
+        while (query.MoveNext(out var uid, out _, out var containerManager))
         {
-            foreach (var hand in _handsSystem.EnumerateHands(uid, hands))
+            foreach (var container in containerManager.Containers.Values)
             {
-                if (hand.HeldEntity == item)
+                if (container.Contains(item))
                 {
-                    user = uid;
+                    owner = uid;
                     return true;
                 }
             }

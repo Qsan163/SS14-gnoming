@@ -93,9 +93,9 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
             .Replace(" ", "")
             .ToUpperInvariant();
 
-        if (!TryValidDocument(uid, text, printout, component))
+        if (!IsValidDocument(uid, text, printout, component))
             return;
-        if (!TryPollutedStation(component))
+        if (!IsPollutedStation(component))
             return;
 
         _consoleHost.ExecuteCommand("callert ERT-Cleaners");
@@ -106,21 +106,21 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
     }
 
 
-    private bool TryValidDocument(EntityUid uid, string text, FaxPrintout printout, CallErtViaCentcomFaxComponent component)
+    private bool IsValidDocument(EntityUid uid, string text, FaxPrintout printout, CallErtViaCentcomFaxComponent component)
     {
-        if (!TryCallingERT(text))
+        if (!IsCallingERT(text))
             return false;
-        if (!TryDocumentShape(text, component))
+        if (!IsDocumentShape(text, component))
             return false;
-        if (!TryStationNumber(text, component))
+        if (!IsStationNumber(text, component))
             return false;
-        if (!TryDate(text, component))
+        if (!IsDate(text, component))
             return false;
-        if (!TryNamePlayer(uid, text, component))
+        if (!IsNamePlayer(uid, text, component))
             return false;
-        if (!TryProfession(uid, text, component))
+        if (!IsProfession(uid, text, component))
             return false;
-        if (!TryStamp(printout, component))
+        if (!IsStamp(printout, component))
             return false;
 
         return true;
@@ -128,25 +128,26 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
 
 
 
-    public bool TryPollutedStation(CallErtViaCentcomFaxComponent component)
+    public bool IsPollutedStation(CallErtViaCentcomFaxComponent component)
     {
         int counter = 0;
 
-        counter += ProcessTrashType<TrashSmallComponent>(component.AmountTrashSmall);
-        counter += ProcessTrashType<TrashMediumComponent>(component.AmountTrashMedium);
-        counter += ProcessTrashType<TrashLargeComponent>(component.AmountTrashLarge);
+        counter += ProcessTrashType(TrashComponent.TrashSize.Small, component.AmountTrashSmall);
+        counter += ProcessTrashType(TrashComponent.TrashSize.Medium, component.AmountTrashMedium);
+        counter += ProcessTrashType(TrashComponent.TrashSize.Large, component.AmountTrashLarge);
 
         _adminLog.Add(LogType.Action, LogImpact.High, $"[CentcomFax] Total trash score: {counter} (Threshold: {component.MinAmountTrash})");
         return counter >= component.MinAmountTrash;
     }
 
-    private int ProcessTrashType<T>(int trashValue) where T : IComponent
+    private int ProcessTrashType(TrashComponent.TrashSize size, int trashValue)
     {
         int count = 0;
 
-        var query = EntityQueryEnumerator<T, TransformComponent>();
-        while (query.MoveNext(out var uid, out _, out var xform))
+        var query = EntityQueryEnumerator<TrashComponent, TransformComponent>();
+        while (query.MoveNext(out var _, out var trash, out var xform))
         {
+            if (trash.Size != size) continue;
             if (xform.GridUid == EntityUid.Invalid) continue;
 
             var station = _stationSystem.GetOwningStation(xform.GridUid);
@@ -159,8 +160,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
     }
 
 
-
-    private bool TryCallingERT(string text)
+    private bool IsCallingERT(string text)
     {
         var ertRequest1 = _patternERTRequest1.Match(text);
         if (!ertRequest1.Success)
@@ -175,7 +175,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
         return true;
     }
 
-    private bool TryDocumentShape(string text, CallErtViaCentcomFaxComponent component)
+    private bool IsDocumentShape(string text, CallErtViaCentcomFaxComponent component)
     {
         var shape = _patternShape.Match(text);
         if (!shape.Success)
@@ -187,7 +187,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
         return true;
     }
 
-    private bool TryStationNumber(string text, CallErtViaCentcomFaxComponent component)
+    private bool IsStationNumber(string text, CallErtViaCentcomFaxComponent component)
     {
         var stationName = _patternStationName.Match(text);
         if (!stationName.Success)
@@ -199,7 +199,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
         return true;
     }
 
-    private bool TryDate(string text, CallErtViaCentcomFaxComponent component)
+    private bool IsDate(string text, CallErtViaCentcomFaxComponent component)
     {
         var date = _patternDate.Match(text);
         if (!date.Success)
@@ -211,7 +211,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
         return true;
     }
 
-    private bool TryNamePlayer(EntityUid uid, string text, CallErtViaCentcomFaxComponent component)
+    private bool IsNamePlayer(EntityUid uid, string text, CallErtViaCentcomFaxComponent component)
     {
         var nameMatch = _patternNamePlayer.Match(text);
         if (!nameMatch.Success)
@@ -251,7 +251,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
         return false;
     }
 
-    private bool TryProfession(EntityUid uid, string text, CallErtViaCentcomFaxComponent component)
+    private bool IsProfession(EntityUid uid, string text, CallErtViaCentcomFaxComponent component)
     {
         var profession = _patternProfession.Match(text);
         if (!profession.Success)
@@ -289,7 +289,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
         return false;
     }
 
-    private bool TryStamp(FaxPrintout printout, CallErtViaCentcomFaxComponent component)
+    private bool IsStamp(FaxPrintout printout, CallErtViaCentcomFaxComponent component)
     {
         if (printout.StampedBy.Count == 0)
         {
@@ -313,7 +313,7 @@ public sealed class CallErtViaCentcomFaxSystem : EntitySystem
     {
         _chatSystem.DispatchGlobalAnnouncement(
             message,
-            sender: "Центральное Командование",
+            sender: Loc.GetString("centcom-announcement-ert-cleaners-sender-name"),
             true,
             comp.Sound,
             colorOverride: Color.Gold

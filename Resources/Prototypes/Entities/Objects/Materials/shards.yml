@@ -51,7 +51,7 @@
   - type: Tag
     tags:
     - Trash
-  - type: TrashSmall # Imperial "OperationalErtCleaners"
+  - type: Trash # Imperial "OperationalErtCleaners"
   - type: SpaceGarbage
   - type: Damageable
     damageContainer: Inorganic

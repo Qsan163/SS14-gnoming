@@ -87,7 +87,8 @@
     - Egg
     - Trash
   - type: SpaceGarbage
-  - type: TrashMedium # Imperial "OperationalErtCleaners"
+  - type: Trash # Imperial "OperationalErtCleaners"
+    size: Medium # Imperial "OperationalErtCleaners"
 
 # Egg
 

@@ -19,7 +19,8 @@
   - type: Tag
     tags:
       - Trash
-  - type: TrashMedium # Imperial "OperationalErtCleaners"
+  - type: Trash # Imperial "OperationalErtCleaners"
+    size: Medium # Imperial "OperationalErtCleaners"
 
 - type: entity
   id: BaseTorso

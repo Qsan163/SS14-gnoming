@@ -22,7 +22,6 @@
     size: Tiny
     sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
     heldPrefix: unlit
-  - type: TrashSmall # Imperial "OperationalErtCleaners"
 
 - type: entity
   id: CigarSpent
@@ -42,7 +41,6 @@
       - Cigar
       - Trash
       - Burnt
-  - type: TrashSmall # Imperial "OperationalErtCleaners"
 
 - type: entity
   id: CigarGold

@@ -2389,7 +2389,6 @@
     seedId: bungo
   - type: SpaceGarbage
   - type: BadFood
-  - type: TrashMedium # Imperial "OperationalErtCleaners"
 
 - type: entity
   parent: FoodProduceBase

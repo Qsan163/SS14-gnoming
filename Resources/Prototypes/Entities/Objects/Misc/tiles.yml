@@ -43,7 +43,7 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
-  - type: TrashSmall # Imperial "OperationalErtCleaners"
+  - type: Trash # Imperial "OperationalErtCleaners"
 
 - type: entity
   name: steel dark checker tile
