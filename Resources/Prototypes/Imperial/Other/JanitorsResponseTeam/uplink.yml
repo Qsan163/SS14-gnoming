@@ -1,6 +1,6 @@
 - type: entity
   parent: [BaseERTUplink]
-  id: JRTUplinkJanitorModifiedWithoutWeapons
+  id: JRTUplink
   suffix: JRT
   components:
   - type: Store
