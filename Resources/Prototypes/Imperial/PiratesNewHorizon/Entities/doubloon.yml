@@ -70,7 +70,7 @@
       blackmark:
         reagents:
         - ReagentId: PirateEssence
-          Quantity: 2
+          Quantity: 5
         canReact: false
   - type: Extractable
     grindableSolutionName: blackmark
