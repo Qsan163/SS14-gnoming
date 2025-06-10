@@ -10,7 +10,7 @@
       graph: GoldToiletGraph
       node: goldtoilet
     - type: StaticPrice
-      price: 2000
+      price: 375
     - type: Destructible
       thresholds:
       - trigger:
