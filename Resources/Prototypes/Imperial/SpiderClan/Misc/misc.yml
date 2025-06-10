@@ -43,6 +43,8 @@
     slots:
     - idcard
     sprite: Imperial/SpiderClan/Misc/Card.rsi
+  - type: StaticPrice
+    price: 35000
 
 - type: entity
   parent: IDCardStandard
@@ -75,6 +77,8 @@
     interfaces:
       enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
+  - type: StaticPrice
+    price: 35000
 
 - type: entity
   id: NinjaLocker

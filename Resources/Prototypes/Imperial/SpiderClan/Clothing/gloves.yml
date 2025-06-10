@@ -19,6 +19,8 @@
         enum.ToggleVisuals.Layer:
           True: {state: icon}
           False: {state: off-icon}
+  - type: StaticPrice
+    price: 15000
 
 - type: entity
   parent: ClothingHandsGlovesSpaceNinja
@@ -41,6 +43,8 @@
         enum.ToggleVisuals.Layer:
           True: {state: icon}
           False: {state: off-icon}
+  - type: StaticPrice
+    price: 15000
 
 - type: entity
   parent: ClothingHandsGlovesSpaceNinja
@@ -63,3 +67,5 @@
         enum.ToggleVisuals.Layer:
           True: {state: icon}
           False: {state: off-icon}
+  - type: StaticPrice
+    price: 15000
