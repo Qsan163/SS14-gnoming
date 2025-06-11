@@ -47,7 +47,7 @@ public sealed class CallJRTViaCentcomFaxSystem : EntitySystem
     private readonly Regex _patternProfession = new(
         @"ДОЛЖНОСТЬ\s*:\s*([а-яА-ЯёЁ\s-]+)",
         RegexOptions.Compiled | RegexOptions.IgnoreCase);
-    private int _callCounterJRT = 0; // So that space assholes don't spam with the valid document
+    private bool _isThereIsJRT = false; // So that space assholes don't spam with the valid document
 
     public override void Initialize()
     {
@@ -81,7 +81,7 @@ public sealed class CallJRTViaCentcomFaxSystem : EntitySystem
             return;
 
         /// If this squad has been called more than 1 time, then this is spam
-        if (_callCounterJRT >= 1)
+        if (_isThereIsJRT)
         {
             _adminLog.Add(LogType.Action, LogImpact.High, $"[CentcomFax] Attempt to spam papers about the call JRT.");
             _chatManager.SendAdminAnnouncement(Loc.GetString("admin-manager-fax-jrt-spam"));
@@ -91,6 +91,8 @@ public sealed class CallJRTViaCentcomFaxSystem : EntitySystem
 
         var text = printout.Content
             .Replace(" ", "")
+            .Replace("[bold]", "")
+            .Replace("[/bold]", "")
             .ToUpperInvariant();
 
         if (!IsValidDocument(uid, text, printout, component))
@@ -102,7 +104,7 @@ public sealed class CallJRTViaCentcomFaxSystem : EntitySystem
         _chatManager.SendAdminAnnouncement(Loc.GetString("admin-manager-fax-jrt-accepted"));
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"[CentcomFax] JRT has been called.");
 
-        _callCounterJRT++;
+        _isThereIsJRT = true;
     }
 
 
@@ -137,7 +139,15 @@ public sealed class CallJRTViaCentcomFaxSystem : EntitySystem
         counter += ProcessTrashType(TrashComponent.TrashSize.Large, component.AmountTrashLarge);
 
         _adminLog.Add(LogType.Action, LogImpact.High, $"[CentcomFax] Total trash score: {counter} (Threshold: {component.MinAmountTrash})");
-        return counter >= component.MinAmountTrash;
+        if (counter >= component.MinAmountTrash)
+        {
+            return true;
+        }
+        else
+        {
+            _adminLog.Add(LogType.Action, LogImpact.Medium, $"[CentcomFax] The amount of garbage at the station does not exceed the minimum limit for sending JRT.");
+            return false;
+        }
     }
 
     private int ProcessTrashType(TrashComponent.TrashSize size, int trashValue)
@@ -299,7 +309,7 @@ public sealed class CallJRTViaCentcomFaxSystem : EntitySystem
         }
 
         bool hasCaptainStamp = printout.StampedBy.Any(s => s.StampedName == "Капитан");
-        bool hasMopStamp = printout.StampedBy.Any(s => s.StampedName == "stamp-component-stamped-name-mop");
+        bool hasMopStamp = printout.StampedBy.Any(s => s.StampedName == "Уборщик");
         if (hasCaptainStamp || hasMopStamp)
         {
             _adminLog.Add(LogType.Action, LogImpact.Low, $"[CentcomFax] Incorrect printing. The correct format is the seal of the captain or the cleaner (then ONLY the cleaner puts the seal).");
