@@ -7,7 +7,15 @@
       amount: 5
   products:
     PoisonWine: 10
-
+- type: reaction
+  id: Neurotoxin
+  reactants:
+    Mustard:
+      amount: 1
+    DrGibb:
+      amount: 2
+  products:
+    Neurotoxin: 3
 - type: reaction
   id: MeatWine
   reactants:
@@ -19,21 +27,9 @@
     MeatWine: 2
 
 - type: reaction
-  id: Vermouth
-  reactants:
-    Wine:
-      amount: 1
-    Benzene:
-      amount: 1
-  products:
-    Vermouth: 2
-
-- type: reaction
   id: WineEssence
   reactants:
     Wine:
-      amount: 1
-    VampireWine:
       amount: 1
     Vermouth:
       amount: 1
@@ -45,29 +41,31 @@
       amount: 1
     PoisonWine:
       amount: 1
+    DemonsBlood:
+      amount: 1
+    DevilsKiss:
+      amount: 1
     PirateEssence:
       amount: 1
   products:
-    WineEssence: 8
+    WineEssence: 7
 
 - type: reaction
   id: BeerEssence
   reactants:
+    RandoVeisser:
+      amount: 1
     WhiteGilgamesh:
       amount: 1
     SnowWhite:
       amount: 1
     SyndicateBomb:
       amount: 1
-    RandoVeisser:
-      amount: 1
     Beer:
       amount: 1
     ManlyDorf:
       amount: 1
     IcedBeer:
-      amount: 1
-    RadiumBeer:
       amount: 1
     BlackoutStout:
       amount: 1
@@ -93,8 +91,6 @@
 - type: reaction
   id: VodkaEssence
   reactants:
-    Amasec:
-      amount: 1
     Antifreeze:
       amount: 1
     Vodka:
@@ -107,15 +103,11 @@
       amount: 1
     AlliesCocktail:
       amount: 1
-    BloodyMary:
-      amount: 1
     TheMartinez:
       amount: 1
     ScrewdriverCocktail:
       amount: 1
     DoomVodka:
-      amount: 1
-    Sbiten:
       amount: 1
     FourteenLoko:
       amount: 1
@@ -124,7 +116,7 @@
     PirateEssence:
       amount: 1
   products:
-    VodkaEssence: 15
+    VodkaEssence: 12
 
 - type: reaction
   id: Detoxificator
@@ -132,13 +124,9 @@
   reactants:
     Hotsauce:
       amount: 1
-    Chlorine:
-      amount: 1
-    Oxygen:
-      amount: 1
     Blackpepper:
       amount: 1
     Plasma:
       amount: 3
   products:
-    Detoxificator: 4
+    Detoxificator: 5
