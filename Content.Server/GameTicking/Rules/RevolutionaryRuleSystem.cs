@@ -245,7 +245,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     continue;
 
                 // remove their antag role
-                _role.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
+                _role.MindRemoveRole<RevolutionaryRoleComponent>(mindId);
 
                 // make it very obvious to the rev they've been deconverted since
                 // they may not see the popup due to antag and/or new player tunnel vision
@@ -389,13 +389,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // - Имеет защиту от контроля разума
         // - Не гуманоидный облик (если не принудительная)
         // - Мертв или является зомби
-        // - Принадлежит к командному составу (кастомное правило)
         if (HasComp<RevolutionaryComponent>(uid) ||
             HasComp<MindShieldComponent>(uid) ||
             !HasComp<HumanoidAppearanceComponent>(uid) && !alwaysConvertible ||
             !_mobState.IsAlive(uid) ||
-            HasComp<ZombieComponent>(uid)
-            || HasComp<CommandStaffComponent>(uid)) // Кастомное правило: командный состав нельзя преобразовать
+            HasComp<ZombieComponent>(uid))
         {
             return false;
         }
