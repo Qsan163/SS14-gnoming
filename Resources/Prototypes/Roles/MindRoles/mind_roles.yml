@@ -305,5 +305,5 @@
   - type: MindRole
     antagPrototype: Zombie
     exclusiveAntag: true
-    roleType: TeamAntagonist
+    subtype: role-subtype-zombie
   - type: ZombieRole
