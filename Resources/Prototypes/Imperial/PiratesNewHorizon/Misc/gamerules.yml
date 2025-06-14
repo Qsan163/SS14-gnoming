@@ -30,6 +30,31 @@
         - NamesPirateLast
         nameFormat: name-format-standard
       - type: PirateAccent
+            - Syndicate
+      - type: CrewSkills
+        skills:
+          - skillBotany #base
+          - skillBaseMed
+          - skillBaseConstraction
+          - skillCooking  #Easy
+          - skillBartending
+          - skillHacking
+          - skillInstrumentation #Medium
+          - skillMaintenance
+          - skillMediumConstruction
+          - skillMediumBotany
+          - skillBasicAtmos
+          - skillMedicalEquipment
+          - skillPharmacology
+          - skillPiloting #Hard
+          - skillAtmos
+          - skillHardInstrumentation
+          - skillRobotics
+          - skillResearch
+          - skillPharmaceuticals
+          - skillShooting
+          - skillSurgery
+          - skillNeuroSurgery
       mindRoles:
       - MindRoleCaptainPirate
     - prefRoles: [ Pirate ]
@@ -48,6 +73,31 @@
         - NamesPirateLast
         nameFormat: name-format-standard
       - type: PirateAccent
+            - Syndicate
+      - type: CrewSkills
+        skills:
+          - skillBotany #base
+          - skillBaseMed
+          - skillBaseConstraction
+          - skillCooking  #Easy
+          - skillBartending
+          - skillHacking
+          - skillInstrumentation #Medium
+          - skillMaintenance
+          - skillMediumConstruction
+          - skillMediumBotany
+          - skillBasicAtmos
+          - skillMedicalEquipment
+          - skillPharmacology
+          - skillPiloting #Hard
+          - skillAtmos
+          - skillHardInstrumentation
+          - skillRobotics
+          - skillResearch
+          - skillPharmaceuticals
+          - skillShooting
+          - skillSurgery
+          - skillNeuroSurgery
       mindRoles:
       - MindRolePirate
 
@@ -78,6 +128,30 @@
         - NamesPirateFirst
         - NamesPirateLast
         nameFormat: name-format-standard
+      - type: CrewSkills
+        skills:
+          - skillBotany #base
+          - skillBaseMed
+          - skillBaseConstraction
+          - skillCooking  #Easy
+          - skillBartending
+          - skillHacking
+          - skillInstrumentation #Medium
+          - skillMaintenance
+          - skillMediumConstruction
+          - skillMediumBotany
+          - skillBasicAtmos
+          - skillMedicalEquipment
+          - skillPharmacology
+          - skillPiloting #Hard
+          - skillAtmos
+          - skillHardInstrumentation
+          - skillRobotics
+          - skillResearch
+          - skillPharmaceuticals
+          - skillShooting
+          - skillSurgery
+          - skillNeuroSurgery
       mindRoles:
       - MindRoleCaptainPirate
     - prefRoles: [ Pirate ]
@@ -96,5 +170,30 @@
         - NamesPirateFirst
         - NamesPirateLast
         nameFormat: name-format-standard
+            - Syndicate
+      - type: CrewSkills
+        skills:
+          - skillBotany #base
+          - skillBaseMed
+          - skillBaseConstraction
+          - skillCooking  #Easy
+          - skillBartending
+          - skillHacking
+          - skillInstrumentation #Medium
+          - skillMaintenance
+          - skillMediumConstruction
+          - skillMediumBotany
+          - skillBasicAtmos
+          - skillMedicalEquipment
+          - skillPharmacology
+          - skillPiloting #Hard
+          - skillAtmos
+          - skillHardInstrumentation
+          - skillRobotics
+          - skillResearch
+          - skillPharmaceuticals
+          - skillShooting
+          - skillSurgery
+          - skillNeuroSurgery
       mindRoles:
       - MindRolePirate
