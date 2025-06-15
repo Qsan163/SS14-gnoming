@@ -17,6 +17,8 @@
     fireRate: 15
     soundGunshot:
       path: /Audio/Imperial/SpecialUnits/DeathSquad/minigun.ogg
+      params:
+        volume: -3
   - type: BallisticAmmoProvider
     proto: CartridgeMinigunR
     capacity: 1000

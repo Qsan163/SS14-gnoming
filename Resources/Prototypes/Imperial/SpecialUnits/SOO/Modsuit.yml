@@ -1,6 +1,6 @@
 #Рюкзак
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingControlModsuitBase
   id: ClothingControlModsuitSpecialOfficer
   name: SOO modsuit
   description: Special hardsuit backpack.
@@ -33,8 +33,9 @@
     color: "#a0f1e8"
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
-    radius: 12
-    softness: 20
+    radius: 8
+    energy: 5
+    softness: 15
     autoRot: true
   - type: ClothingSpeedModifier
     walkModifier: 1
@@ -100,9 +101,6 @@
     clothingPrototype: ClothingHeadHelmetModsuitSpecialOfficer
     slot: head
     requiredSlot: outerClothing
-  - type: ClothingFactionExplosion
-    friendlyFaction: DeathSquad
-    chance: 1
   - type: GasTank
     outputPressure: 42.6
     air:
@@ -118,11 +116,8 @@
     interfaces:
       enum.SharedGasTankUiKey.Key:
         type: GasTankBoundUserInterface
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 20
   - type: Jetpack
-    moleUsage: 0.00085
+    moleUsage: 0
   - type: CanMoveInAir
   - type: InputMover
   - type: MovementSpeedModifier
@@ -158,12 +153,6 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity
   - type: EyeProtection
-  - type: ClothingFactionExplosion
-    friendlyFaction: DeathSquad
-    chance: 1
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 20
 
 #Cиловые перчатки
 #- type: entity
@@ -202,9 +191,3 @@
 #    slot: head
 #    requiredSlot: gloves
 #  - type: Insulated
-#  - type: ClothingFactionExplosion
-#    friendlyFaction: DeathSquad
-#    chance: 1
-#  - type: Explosive
-#    explosionType: Default
-#    maxIntensity: 20

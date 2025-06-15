@@ -7,7 +7,7 @@
 #    mask: ClothingMaskGasSwat
     shoes: ClothingShoesBootsJackSpecialOfficer
     head: ClothingHeadHatSpecialOfficer
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingDSOGlassesWhite ## Белые очки владига
     gloves: ClothingHandsGlovesCombat
     id: SpecialOfficerPDA
     ears: SODDeathSquadHeadset ## Гарнитура ЭС
@@ -17,7 +17,7 @@
   parent: MobHuman
   id: SpecialOfficerPreset
   name: Special Officer
-  suffix: ДСО
+  suffix: SOO
   components:
     - type: RandomMetadata
       nameSegments:
