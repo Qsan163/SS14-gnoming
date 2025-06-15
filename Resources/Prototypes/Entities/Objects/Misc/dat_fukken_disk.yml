@@ -26,7 +26,7 @@
     - GhostOnlyWarp
   - type: StealTarget
     stealGroup: NukeDisk
-    #Imperial Space Pirates: New Horizon
+    #Imperial Space Pirates: New Horizon start
   - type: GPSTrackerPrice
     startprice: 0
     endprice: 13000
