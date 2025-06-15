@@ -252,6 +252,7 @@
   - type: Construction
     graph: MedicalEyepatchHud
     node: medicalEyepatch
+    #Imperial Space Pirates: New Horizon end
 
 - type: entity
   parent: [ClothingEyesEyepatchHudMedical, ClothingHeadEyeBaseFlipped]
