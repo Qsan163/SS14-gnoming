@@ -1840,7 +1840,7 @@
     id: PiratePDA
     back: ClothingBackpackSatchelLeather
     belt: ClothingBeltUtility
-    #Imperial Space Pirates: New Horizon; Line Removed: "ears: ClothingHeadsetFreelance"
+    # ears: ClothingHeadsetFreelance #Imperial Space Pirates: New Horizon
     pocket1: WeaponPistolFlintlock
     pocket2: HandheldGPSBasic
   inhand:
