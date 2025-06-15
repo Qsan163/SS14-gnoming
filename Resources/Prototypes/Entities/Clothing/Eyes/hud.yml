@@ -30,7 +30,7 @@
     damageContainers:
     - Inorganic
     - Silicon
-    #Imperial Space Pirates: New Horizon
+    #Imperial Space Pirates: New Horizon start
   - type: Tag
     tags:
     - HudDiagnostic # Imperial Space Pirates: New Horizon End
