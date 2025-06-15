@@ -93,6 +93,7 @@
   - type: Tag
     tags:
     - HudBeer
+    # Imperial Space Pirates: New Horizon end
 
 - type: entity
   parent: ClothingEyesBase
