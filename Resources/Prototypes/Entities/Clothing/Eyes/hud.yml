@@ -33,7 +33,7 @@
     #Imperial Space Pirates: New Horizon
   - type: Tag
     tags:
-    - HudDiagnostic
+    - HudDiagnostic # Imperial Space Pirates: New Horizon End
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
