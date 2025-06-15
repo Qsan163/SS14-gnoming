@@ -51,6 +51,7 @@
   - type: GPSTrackerPrice
     startprice: 0
     endprice: 13000
+    #Imperial Space Pirates: New Horizon end
 - type: entity
   id: BoxAwardM2108
   parent: PresentableBox
