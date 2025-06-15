@@ -276,6 +276,7 @@
   - type: Construction
     graph: SecurityEyepatchHud
     node: securityEyepatch
+    #Imperial Space Pirates: New Horizon end
 
 - type: entity
   parent: [ClothingEyesEyepatchHudSecurity,  ClothingHeadEyeBaseFlipped]
