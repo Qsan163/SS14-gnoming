@@ -324,6 +324,7 @@
   - type: Construction
     graph: DiagnosticEyepatchHud
     node: diagnosticEyepatch
+    #Imperial Space Pirates: New Horizon end
 
 - type: entity
   parent: [ClothingEyesEyepatchHudDiag, ClothingHeadEyeBaseFlipped]
