@@ -42,6 +42,7 @@
     - state: unshaded
       shader: unshaded
     - state: holo
+      shader: unshaded
   - type: Clothing
     slots:
     - idcard
@@ -68,6 +69,7 @@
     - state: unshaded
       shader: unshaded
     - state: holo
+      shader: unshaded
   - type: Clothing
     slots:
     - idcard
