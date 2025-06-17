@@ -39,7 +39,7 @@
     - Traitor
     - Revolutionary
     - Zombie
-    #- Pirates # Imperial Space Pirates: New Horizon
+    - Pirates # Imperial Space Pirates: New Horizon
     - Wizard
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
@@ -62,6 +62,7 @@
     - Revolutionary
     - Zombie
     - Wizard
+    - Pirates # Imperial Space Pirates: New Horizon
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
