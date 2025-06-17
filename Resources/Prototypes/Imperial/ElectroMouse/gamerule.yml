@@ -7,7 +7,7 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 25
     weight: 8
     duration: 1
   - type: RandomSpawnRule
