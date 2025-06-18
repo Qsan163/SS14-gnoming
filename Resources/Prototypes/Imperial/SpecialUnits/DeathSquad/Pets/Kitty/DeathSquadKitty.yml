@@ -48,7 +48,6 @@
   - type: NpcFactionMember
     factions:
     - DeathSquad
-    - EmpImplant
   - type: MeleeWeapon
     attackRate: 1
     altDisarm: false

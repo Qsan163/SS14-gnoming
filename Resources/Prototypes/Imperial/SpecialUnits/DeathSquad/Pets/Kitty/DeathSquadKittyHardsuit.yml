@@ -60,14 +60,14 @@
     layers:
     - state: icon
   - type: Clothing
-    layers:
-    - state: equipped-MASK
-      map: [ "mask" ]
-    - state: on-equipped-MASK
-      visible: false
-      map: [ "light" ]
-    slots: [mask]
     sprite: Imperial/SpecialUnits/DeathSquad/Pets/Kitty/deathsuqad_kitty_hardsuit.rsi
+#    layers:
+    state: equipped-MASK
+#      map: [ "mask" ]
+#    - state: on-equipped-MASK
+#      visible: false
+#      map: [ "light" ]
+    slots: [mask]
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
