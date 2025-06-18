@@ -62,7 +62,7 @@
   - type: Clothing
     sprite: Imperial/SpecialUnits/DeathSquad/Pets/Kitty/deathsuqad_kitty_hardsuit.rsi
 #    layers:
-    state: equipped-MASK
+#    state: equipped-MASK
 #      map: [ "mask" ]
 #    - state: on-equipped-MASK
 #      visible: false
