@@ -15,16 +15,6 @@
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: hamster
   - type: Appearance
-  - type: Medibot
-    treatments:
-      Alive:
-        reagent: Omnizine
-        quantity: 30
-        minDamage: 0
-        maxDamage: 120
-      Critical:
-        reagent: Omnizine
-        quantity: 30
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-dshamster
