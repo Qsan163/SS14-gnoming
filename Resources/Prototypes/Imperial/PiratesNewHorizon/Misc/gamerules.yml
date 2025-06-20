@@ -30,7 +30,6 @@
         - NamesPirateLast
         nameFormat: name-format-standard
       - type: PirateAccent
-            - Syndicate
       - type: CrewSkills
         skills:
           - skillBotany #base
