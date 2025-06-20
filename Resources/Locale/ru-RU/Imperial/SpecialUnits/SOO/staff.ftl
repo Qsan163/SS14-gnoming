@@ -23,6 +23,11 @@ ent-ClothingOuterChestplateModsuitSpecialOfficer = основа Р.И.Г.а Оф
 ent-ClothingHeadHelmetModsuitSpecialOfficer = шлем Р.И.Г.а Офицера Специальных Операций
     .desc = Защищает вашу голову от пуль, осколков, фанатов департамента и излишнего солнечного света.
 
+ent-ClothingOuterHardsuitSpecialOfficer = скафандр Офицера Специальных Операций
+    .desc = Иногда он защищает вас от пуль, а иногда от ядерной бомбы.
+ent-ClothingHeadHelmetHardsuitSpecialOfficer = шлем скафандра Офицера Специальных Операций
+    .desc = Защищает вашу голову от пуль, осколков, фанатов департамента и излишнего солнечного света.
+
 ent-SpecialOfficerIDCard = ID карта Офицера Специальных Операций
     .desc = Карта главного страха врагов NanoTrasen.
 ent-SpecialOfficerPDA = КПК Офицера ДСО

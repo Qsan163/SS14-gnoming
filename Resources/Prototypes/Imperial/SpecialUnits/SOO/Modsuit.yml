@@ -81,7 +81,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.01
   - type: FireProtection
-    reduction: 0
+    reduction: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -104,7 +104,6 @@
   - type: GasTank
     outputPressure: 42.6
     air:
-      # 2 minutes of thrust
       volume: 0.75
       temperature: 293.15
       moles:
