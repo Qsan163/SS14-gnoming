@@ -17,7 +17,6 @@
         Holy: 1.25
   - type: Tag
     tags:
-    - Mask
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:

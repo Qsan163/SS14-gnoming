@@ -39,7 +39,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Imperial/Crook/runebreak.ogg
+          path: /Audio/Imperial/Crook/Heretic/runebreak.ogg
 
 - type: entity
   id: HereticRuneRitualDrawAnimationEffect
