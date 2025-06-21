@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseItem
+  id: HereticBladeBaseNoTeleport
+  name: eldritch blade
+  suffix: Heretic, Crook
+  description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: Imperial/Crook/Heretic/Blades/eldritch_blade.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: MeleeWeapon
+    armorPenetration: 0.3
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Slash: 18
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Normal
+    sprite: Imperial/Crook/Heretic/Blades/eldritch_blade-inhands.rsi

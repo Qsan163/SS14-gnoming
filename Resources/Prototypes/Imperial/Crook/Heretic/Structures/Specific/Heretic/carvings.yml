@@ -1,0 +1,76 @@
+- type: entity
+  id: BaseCarving
+  name: elder carving
+  suffix: Heretic, Crook
+  description: Collection of unknown symbols, they remind you of days long gone...
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: Imperial/Crook/Heretic/carvings.rsi
+    color: '#FFFFFF2a'
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        hard: false
+        mask:
+          - ItemMask
+        layer:
+          - SlipLayer
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Imperial/Crook/Heretic/runebreak.ogg
+
+- type: entity
+  parent: BaseCarving
+  id: GraspingCarving
+  name: grasping carving
+  suffix: Heretic, Crook
+  description: When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: tentacle_rune
+
+- type: entity
+  parent: BaseCarving
+  id: MadCarving
+  name: mad carving
+  suffix: Heretic, Crook
+  description: When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    state: madness_rune
+
+- type: entity
+  parent: BaseCarving
+  id: AlertCarving
+  name: alert carving
+  suffix: Heretic, Crook
+  description: A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: '#FFFFFF0e'
+    state: alert_rune

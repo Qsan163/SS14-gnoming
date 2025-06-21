@@ -1,0 +1,9 @@
+ent-HereticRuneRitual = трансмутационная руна
+    .desc = Древний рисунок, используемый зловещими индивидами для жертвоприношений.
+ent-HereticRuneRitualDrawAnimationEffect = незаконченная трансмутационная руна
+    .desc = Незаконченный древний рисунок, используемый зловещими индивидами для жертвоприношений.
+ent-HereticRuneRitualDrawAnimationCicatrix = незаконченная трансмутационная руна
+    .desc = Незаконченный древний рисунок, используемый зловещими индивидами для жертвоприношений.
+ent-HereticRuneRitualAnimationEffect = transmutation rune
+    .desc = you shouldn't be seeing this description
+eldritch-influence-reaction = Ваш разум не выдерживает!

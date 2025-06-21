@@ -1,0 +1,85 @@
+- type: entity
+  id: HereticRuneRitual
+  name: transmutation rune
+  suffix: Heretic, Crook
+  description: An ancient drawing used by sinister individuals for sacrifices.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Imperial/Crook/Heretic/ritual_rune.rsi
+    layers:
+    - state: overlay
+      color: "#FFFFFF01"
+    - state: icon
+  - type: Clickable
+  - type: IgnoresFingerprints
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Fixtures
+    fixtures:
+      rune:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.5
+        hard: false
+        mask:
+         - ItemMask
+        layer:
+         - SlipLayer
+  - type: Physics
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Imperial/Crook/runebreak.ogg
+
+- type: entity
+  id: HereticRuneRitualDrawAnimationEffect
+  name: unfinished transmutation rune
+  suffix: Heretic, Crook
+  description: An unfinished ancient drawing used by sinister individuals for sacrifices.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Imperial/Crook/Heretic/ritual_rune.rsi
+    state: icon_drawanim
+  - type: TimedDespawn
+    lifetime: 13.625
+
+- type: entity
+  parent: HereticRuneRitualDrawAnimationEffect
+  id: HereticRuneRitualDrawAnimationCicatrix
+  suffix: Heretic, Crook
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Imperial/Crook/Heretic/ritual_rune.rsi
+    state: icon_drawanim_cicatrix
+  - type: TimedDespawn
+    lifetime: 4.905
+
+- type: entity
+  id: HereticRuneRitualAnimationEffect
+  name: transmutation rune
+  description: you shouldn't be seeing this description
+  placement:
+    mode: SnapgridCenter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Imperial/Crook/Heretic/ritual_rune.rsi
+    state: icon_ritualanim

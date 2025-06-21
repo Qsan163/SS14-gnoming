@@ -1,0 +1,23 @@
+- type: entity
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  id: CodexCicatrix
+  name: codex cicatrix
+  suffix: Heretic, Crook
+  description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
+  components:
+  - type: Sprite
+    sprite: Imperial/Crook/Heretic/book.rsi
+    layers:
+    - state: icon
+      map: ["closeLayer"]
+    - state: icon-on
+      map: ["openLayer"]
+  - type: Item
+    size: Normal
+    sprite: Imperial/Crook/Heretic/book.rsi
+  - type: UseDelay
+    delay: 2.0
+  - type: Appearance
+  - type: Storage
+    grid:
+    - 0,0,0,0
