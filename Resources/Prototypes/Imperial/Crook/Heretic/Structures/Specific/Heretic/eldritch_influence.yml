@@ -23,7 +23,7 @@
         Slash: 50
     popupText: eldritch-influence-reaction
   - type: AmbientSound
-    range: 6
+    range: 4
     volume: -3
     sound:
       path: /Audio/Ambience/anomaly_scary.ogg
@@ -58,7 +58,7 @@
         Slash: 30
     popupText: eldritch-influence-reaction
   - type: AmbientSound
-    range: 6
+    range: 4
     volume: -3
     sound:
       path: /Audio/Ambience/anomaly_scary.ogg
