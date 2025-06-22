@@ -86,6 +86,7 @@ public sealed partial class HereticRuneSystem : EntitySystem
         var rune = Spawn("HereticRuneRitual", spawnCoords);
 
         _transform.AttachToGridOrMap(rune);
+        var audioParams = AudioParams.Default.WithVolume(-5f);
         _audio.PlayPvs("/Audio/Imperial/Crook/Heretic/castsummon.ogg", rune);
         _popup.PopupEntity("Руна успешно создана!", rune, ev.User);
     }
