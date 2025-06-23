@@ -1,7 +1,7 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
+using Content.Shared.Imperial.Heretic;
+using Content.Shared.Imperial.Heretic.Components;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 using Robust.Shared.Maths;
@@ -12,7 +12,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Server.Imperial.Heretic.EntitySystems;
 
 public sealed partial class HereticRuneSystem : EntitySystem
 {

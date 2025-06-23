@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Heretic;
+namespace Content.Shared.Imperial.Heretic;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HereticComponent : Component
