@@ -1,6 +1,6 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Imperial.Heretic;
+using Content.Shared.Imperial.Heretic.Events;
 using Content.Shared.Imperial.Heretic.Components;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
@@ -30,30 +30,21 @@ public sealed partial class HereticRuneSystem : EntitySystem
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.ClickLocation.IsValid(_entMan) || args.ClickLocation.EntityId == EntityUid.Invalid)
+        if (!args.ClickLocation.IsValid(_entMan))
             return;
 
         if (!args.CanReach || !_entMan.HasComponent<HereticComponent>(args.User))
             return;
 
-        var animEnt = Spawn("HereticRuneRitualDrawAnimationEffect", args.ClickLocation);
+        var (animProto, duration) = GetRuneDrawingParameters(ent);
+
+        var animEnt = Spawn(animProto, args.ClickLocation);
         _transform.AttachToGridOrMap(animEnt);
-
-        // Базовая длительность рисования (13.625 секунд) и базовая анимация
-        var animProto = "HereticRuneRitualDrawAnimationEffect";
-        var duration = TimeSpan.FromSeconds(13.625f);
-
-        // Проверяем, есть ли у предмета компонент TransmutationRuneScriberComponent
-        if (_entMan.TryGetComponent<TransmutationRuneScriberComponent>(ent, out var scriber))
-        {
-            animProto = scriber.RuneDrawingEntity;
-            duration = TimeSpan.FromSeconds(scriber.Time);
-        }
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
             args.User,
-            duration, // Теперь время зависит от наличия компонента
+            duration,
             new DrawRitualRuneDoAfterEvent(
                 _entMan.GetNetEntity(animEnt),
                 new NetCoordinates(
@@ -66,28 +57,45 @@ public sealed partial class HereticRuneSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             DistanceThreshold = 2f,
-            Broadcast = true,
-            RequireCanInteract = true
+            Broadcast = true
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             QueueDel(animEnt);
     }
 
+    private (string animProto, TimeSpan duration) GetRuneDrawingParameters(EntityUid ent)
+    {
+        var animProto = "HereticRuneRitualDrawAnimationEffect";
+        var duration = TimeSpan.FromSeconds(13.625f);
+
+        if (_entMan.TryGetComponent<TransmutationRuneScriberComponent>(ent, out var scriber))
+        {
+            animProto = scriber.RuneDrawingEntity;
+            duration = TimeSpan.FromSeconds(scriber.Time);
+        }
+
+        return (animProto, duration);
+    }
+
     private void OnRitualDoAfter(DrawRitualRuneDoAfterEvent ev)
     {
-        if (_entMan.GetEntity(ev.AnimationEntity) is { } animEnt && _entMan.EntityExists(animEnt))
+        if (_entMan.GetEntity(ev.AnimationEntity) is { } animEnt)
             QueueDel(animEnt);
 
-        if (ev.Cancelled || !_entMan.TryGetEntity(ev.Coordinates.NetEntity, out var targetEntity))
+        if (ev.Cancelled || ev.Handled || !_entMan.TryGetEntity(ev.Coordinates.NetEntity, out var targetEntity))
             return;
 
         var spawnCoords = new EntityCoordinates(targetEntity.Value, ev.Coordinates.Position);
         var rune = Spawn("HereticRuneRitual", spawnCoords);
-
         _transform.AttachToGridOrMap(rune);
-        var audioParams = AudioParams.Default.WithVolume(-5f);
-        _audio.PlayPvs("/Audio/Imperial/Crook/Heretic/castsummon.ogg", rune);
-        _popup.PopupEntity("Руна успешно создана!", rune, ev.User);
+
+        var audioParams = AudioParams.Default
+            .WithVolume(-5f)
+            .WithMaxDistance(10f);
+        _audio.PlayPvs("/Audio/Imperial/Crook/Heretic/castsummon.ogg", rune, audioParams);
+
+        _popup.PopupEntity(Loc.GetString("Руна успешно создана"), rune, ev.User);
+        ev.Handled = true;
     }
 }

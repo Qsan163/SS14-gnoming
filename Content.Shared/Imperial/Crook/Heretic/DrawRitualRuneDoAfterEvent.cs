@@ -2,16 +2,20 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Map;
 using Content.Shared.DoAfter;
 
-namespace Content.Shared.Heretic;
+namespace Content.Shared.Imperial.Heretic.Events;
 
 [Serializable, NetSerializable]
 public sealed partial class DrawRitualRuneDoAfterEvent : SimpleDoAfterEvent
 {
-    [DataField("animationEntity")]
-    public NetEntity AnimationEntity { get; private set; }
+    [DataField]
+    public NetEntity AnimationEntity;
 
-    [DataField("coordinates")]
-    public NetCoordinates Coordinates { get; private set; }
+    [DataField]
+    public NetCoordinates Coordinates;
+
+    public DrawRitualRuneDoAfterEvent()
+    {
+    }
 
     public DrawRitualRuneDoAfterEvent(NetEntity animationEntity, NetCoordinates coordinates)
     {
