@@ -6,7 +6,7 @@ namespace Content.Shared.Imperial.Heretic.Components;
 public sealed partial class EldritchInfluenceDrainerComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float Time = 8f;
+    public float Time = 4f;
 
     [DataField, AutoNetworkedField]
     public bool Hidden;

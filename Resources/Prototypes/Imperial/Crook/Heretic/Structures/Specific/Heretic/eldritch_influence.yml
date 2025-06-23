@@ -40,6 +40,10 @@
     sprite: Imperial/Crook/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Clickable
+  - type: DamageOnInteract
+    damage:
+      types:
+        Slash: 30
   - type: AmbientSound
     range: 3
     volume: -6

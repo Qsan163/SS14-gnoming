@@ -19,6 +19,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private const int SlashDamage = 50;
+    private const float BaseDrainTime = 12f;
 
     public override void Initialize()
     {
@@ -44,50 +45,52 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     }
 
     private bool StartDraining(EntityUid uid, EntityUid user, EntityUid? tool = null)
-{
-    if (!TryComp<EldritchInfluenceComponent>(uid, out var comp) || comp.Spent)
-        return false;
-
-    if (!HasComp<HereticComponent>(user))
     {
-        // Создаем урон по типу "Slash" (порезы)
-        var damage = new DamageSpecifier();
-        if (_prototype.TryIndex<DamageTypePrototype>("Slash", out var slash))
+        if (!TryComp<EldritchInfluenceComponent>(uid, out var comp) || comp.Spent)
+            return false;
+
+        if (!HasComp<HereticComponent>(user))
         {
-            damage.DamageDict.Add("Slash", SlashDamage);
-            _damageable.TryChangeDamage(user, damage);
-            _popup.PopupEntity(Loc.GetString("Нечто отвергает ваше вмешательство!"), uid, user);
-            return true;
+            var damage = new DamageSpecifier();
+            if (_prototype.TryIndex<DamageTypePrototype>("Slash", out var slash))
+            {
+                damage.DamageDict.Add("Slash", SlashDamage);
+                _damageable.TryChangeDamage(user, damage);
+                _popup.PopupEntity(Loc.GetString("Нечто отвергает ваше вмешательство!"), user, user);
+                return true;
+            }
+            return false;
         }
-        return false; // Добавлено: возвращаем false если прототип не найден
+
+        var time = BaseDrainTime;
+        if (tool != null && TryComp<EldritchInfluenceDrainerComponent>(tool.Value, out var drainer))
+        {
+            time = drainer.Time;
+        }
+
+        var args = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(time),
+            new EldritchInfluenceDoAfterEvent(), uid, target: uid, used: tool)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = true,
+            Broadcast = false
+        };
+
+        _popup.PopupEntity(Loc.GetString("Вы начинаете поглощать знания из сдвига..."), user, user);
+        return _doafter.TryStartDoAfter(args);
     }
-
-    var time = TryComp<EldritchInfluenceDrainerComponent>(tool, out var drainer)
-        ? drainer.Time
-        : 10f;
-
-    var args = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(time),
-        new EldritchInfluenceDoAfterEvent(), uid, target: uid, used: tool)
-    {
-        BreakOnDamage = true,
-        BreakOnMove = true,
-        NeedHand = true
-    };
-
-    _popup.PopupEntity(Loc.GetString("Вы начинаете поглощать знания из сдвига..."), uid, user);
-    return _doafter.TryStartDoAfter(args);
-}
 
     private void OnDoAfter(EntityUid uid, EldritchInfluenceComponent comp, EldritchInfluenceDoAfterEvent args)
-    {
-        if (args.Cancelled || args.Handled || comp.Spent)
-            return;
+{
+    if (args.Cancelled || args.Handled || comp.Spent)
+        return;
 
-        comp.Spent = true;
-        Dirty(uid, comp);
+    comp.Spent = true;
+    Dirty(uid, comp);
 
-        var coords = Transform(uid).Coordinates;
-        Spawn("EldritchInfluenceIntermediate", coords);
-        Del(uid);
-    }
+    var coords = Transform(uid).Coordinates;
+    Spawn("EldritchInfluenceIntermediate", coords);
+    Del(uid);
+}
 }

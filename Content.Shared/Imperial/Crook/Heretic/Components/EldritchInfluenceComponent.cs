@@ -2,9 +2,9 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Imperial.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class EldritchInfluenceComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField("spent")]
     public bool Spent = false;
 }
