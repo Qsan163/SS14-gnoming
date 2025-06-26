@@ -1,13 +1,14 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Imperial.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class TransmutationRuneScriberComponent : Component
 {
-    [DataField]
-    public float Time = 4.905f;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan Time = TimeSpan.FromSeconds(4.905);
 
     [DataField]
     public EntProtoId RuneDrawingEntity = "HereticRuneRitualDrawAnimationCicatrixEffect";

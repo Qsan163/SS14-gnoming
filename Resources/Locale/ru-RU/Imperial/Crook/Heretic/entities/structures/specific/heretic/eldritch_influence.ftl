@@ -4,3 +4,5 @@ ent-EldritchInfluenceIntermediate = { "" }
     .desc = { "" }
 ent-EldritchInfluenceSpent = разлом реальности
     .desc = Разлом реальности. Из нее что-то вытекает, стоит ли тебе действительно находиться рядом с этой штукой?
+eldritch-influence-rejection = Ваше тело отвергает влияние!
+eldritch-influence-start-draining = Вы вбираете в себя знания из разлома...

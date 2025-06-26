@@ -7,3 +7,4 @@ ent-HereticRuneRitualDrawAnimationCicatrix = незаконченная тран
 ent-HereticRuneRitualAnimationEffect = transmutation rune
     .desc = you shouldn't be seeing this description
 eldritch-influence-reaction = Ваш разум не выдерживает!
+heretic-rune-scribing-success = Руна успешно создана

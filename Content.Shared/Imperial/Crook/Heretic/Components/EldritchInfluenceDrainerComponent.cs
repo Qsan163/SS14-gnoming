@@ -1,13 +1,11 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Imperial.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class EldritchInfluenceDrainerComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public float Time = 4f;
-
-    [DataField, AutoNetworkedField]
-    public bool Hidden;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan TimeModifier = TimeSpan.FromSeconds(0.5);
 }
