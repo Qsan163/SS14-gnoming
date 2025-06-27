@@ -1,23 +1,18 @@
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Actions;
-using Content.Shared.Borgs;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
-using System.Collections.Generic;
-using Content.Shared.Chemistry;
+using Content.Shared.Imperial.ImperialBorgs;
+using Content.Shared.Imperial.ImperialBorgs.Events;
 
 namespace Content.Server.Imperial.ImperialBorgs
 {
     public sealed class BorgHypoSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
+        [Dependency] private readonly SolutionContainerSystem _solutionSystem = null!;
 
         public override void Initialize()
         {
@@ -39,7 +34,7 @@ namespace Content.Server.Imperial.ImperialBorgs
             if (args.Handled)
                 return;
 
-            RaiseNetworkEvent(new OpenBorgHypoUIEvent(GetNetEntity(uid)));
+            RaiseNetworkEvent(new OpenBorgHypoUIEvent(GetNetEntity(uid)), args.Performer);
             args.Handled = true;
         }
 
@@ -73,7 +68,7 @@ namespace Content.Server.Imperial.ImperialBorgs
             {
                 Act = () =>
                 {
-                    RaiseNetworkEvent(new OpenBorgHypoUIEvent(GetNetEntity(uid)));
+                    RaiseNetworkEvent(new OpenBorgHypoUIEvent(GetNetEntity(uid)), args.User);
                 },
                 Text = Loc.GetString("borghypo-switchreagent"),
                 Priority = 1
@@ -117,14 +112,13 @@ namespace Content.Server.Imperial.ImperialBorgs
                 return;
             }
 
-            if (!_prototypeManager.TryIndex(primaryId, out ReagentPrototype? proto) || proto == null)
+            if (!_prototypeManager.TryIndex(primaryId, out ReagentPrototype? proto))
             {
                 return;
             }
             solution.Value.Comp.Solution.RemoveAllSolution();
 
             var generated = solutionRegenerationComponent.Generated;
-            var chemSolution = newSolution.ToChemSolution();
 
             generated.RemoveAllSolution();
             foreach (var reagentQuantity in newSolution.Reagents)

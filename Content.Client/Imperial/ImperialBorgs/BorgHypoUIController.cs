@@ -1,51 +1,44 @@
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
-using Content.Shared.Borgs;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Input;
 using Content.Client.Popups;
 using JetBrains.Annotations;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Shared.Network;
-using Robust.Shared.GameObjects;
-using Robust.Client.GameObjects;
-using System.Collections.Generic;
 using System.Linq;
-using Robust.Shared.GameStates;
+using Content.Shared.Imperial.ImperialBorgs;
+using Content.Shared.Imperial.ImperialBorgs.Events;
+using Robust.Client.Input;
 
 namespace Content.Client.Imperial.ImperialBorgs;
 
 [UsedImplicitly]
-public sealed class BorgHypoUIController : UIController, IOnStateChanged<GameplayState>
+public sealed class BorgHypoUIController : UIController
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private readonly IEntityManager _entityManager = null!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
+    [Dependency] private readonly IPlayerManager _playerManager = null!;
+    [Dependency] private readonly IEntityNetworkManager _net = null!;
+    [Dependency] private readonly IInputManager _input = default!;
 
     private SimpleRadialMenu? _menu;
     private EntityUid? _activeHypo;
-
-    // Кэш для улучшения производительности
-    private readonly Dictionary<string, RadialMenuOption> _cachedOptions = new();
-    private readonly Dictionary<EntityUid, List<RadialMenuOption>> _entityMenuCache = new();
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<OpenBorgHypoUIEvent>(OnOpenUI);
+
+        _input.SetInputCommand(ContentKeyFunctions.OpenEmotesMenu,
+            InputCmdHandler.FromDelegate(_ => ToggleMenu()));
     }
 
-    private RadialMenuOption CacheRadialOption(ReagentPrototype proto, Reagent reagent)
+    private RadialMenuOption ImperialBorgsRadialOption(ReagentPrototype proto, ImperialBorgsReagent reagent)
     {
-        if (_cachedOptions.TryGetValue(proto.ID, out var cached))
-            return cached;
-
         var spritePath = reagent.Sprite ?? "/Textures/Interface/Misc/beakerlarge.png";
 
         var option = new RadialMenuActionOption<ReagentPrototype>(HandleRadialButtonClick, proto)
@@ -53,23 +46,12 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
             Sprite = new SpriteSpecifier.Texture(new ResPath(spritePath)),
             ToolTip = Loc.GetString(proto.LocalizedName)
         };
-
-        _cachedOptions[proto.ID] = option;
         return option;
-    }
-
-    public void OnStateEntered(GameplayState state)
-    {
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenEmotesMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleMenu(false)))
-            .Register<BorgHypoUIController>();
     }
 
     public void OnStateExited(GameplayState state)
     {
         CommandBinds.Unregister<BorgHypoUIController>();
-        _entityMenuCache.Clear();
     }
 
     private void OnOpenUI(OpenBorgHypoUIEvent ev, EntitySessionEventArgs args)
@@ -79,24 +61,13 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
             return;
 
         _activeHypo = uid;
-        OpenMenu(uid, hypo);
+        OpenMenu(hypo);
     }
 
-    private void OpenMenu(EntityUid uid, BorgHypoComponent hypo)
+    private void OpenMenu(BorgHypoComponent hypo)
     {
         CloseMenu();
-
-        if (_entityMenuCache.TryGetValue(uid, out var cachedModels))
-        {
-            _menu = new SimpleRadialMenu();
-            _menu.SetButtons(cachedModels);
-            _menu.Open();
-            _menu.OpenCentered();
-            return;
-        }
-
         var models = ConvertToButtons(hypo.Solutions).ToList();
-        _entityMenuCache[uid] = models;
 
         _menu = new SimpleRadialMenu();
         _menu.SetButtons(models);
@@ -104,7 +75,7 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
         _menu.OpenCentered();
     }
 
-    private void ToggleMenu(bool centered)
+    private void ToggleMenu()
     {
         if (_menu == null)
         {
@@ -112,7 +83,7 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
             if (player == null || !_entityManager.TryGetComponent<BorgHypoComponent>(player.Value, out var hypo))
                 return;
 
-            OpenMenu(player.Value, hypo);
+            OpenMenu(hypo);
         }
         else
         {
@@ -142,10 +113,7 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
             if (!_prototypeManager.TryIndex(reagent.ReagentId, out ReagentPrototype? proto))
                 continue;
 
-            if (proto == null)
-                continue;
-
-            var option = CacheRadialOption(proto, reagent);
+            var option = ImperialBorgsRadialOption(proto, reagent);
             models.Add(option);
         }
 
@@ -154,7 +122,7 @@ public sealed class BorgHypoUIController : UIController, IOnStateChanged<Gamepla
 
     private void HandleRadialButtonClick(ReagentPrototype prototype)
     {
-        if (_activeHypo == null || !_entityManager.TryGetComponent<BorgHypoComponent>(_activeHypo.Value, out var hypo))
+        if (_activeHypo == null || !_entityManager.TryGetComponent<BorgHypoComponent>(_activeHypo.Value, out _))
         {
             return;
         }

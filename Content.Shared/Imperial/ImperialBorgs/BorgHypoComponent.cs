@@ -1,16 +1,9 @@
-using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.UserInterface;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
-using Robust.Shared.Network;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.Manager;
 
-namespace Content.Shared.Borgs
+namespace Content.Shared.Imperial.ImperialBorgs
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class BorgHypoComponent : Component
@@ -31,11 +24,6 @@ namespace Content.Shared.Borgs
 
         [DataField]
         public EntityUid? ActionEntity;
-
-        /// <summary>
-        /// The key used for the ActivatableUI.
-        /// </summary>
-        public const string UIKey = "borg-hypo";
     }
 
     [DataDefinition]
@@ -43,7 +31,7 @@ namespace Content.Shared.Borgs
     public sealed partial class BorgSolution
     {
         [DataField("reagents")]
-        public List<Reagent> Reagents = new();
+        public List<ImperialBorgsReagent> Reagents = new();
 
         public string? GetPrimaryReagentId()
         {
@@ -63,62 +51,22 @@ namespace Content.Shared.Borgs
 
     [DataDefinition]
     [Serializable, NetSerializable]
-    public sealed partial class Reagent
+    public sealed partial class ImperialBorgsReagent
     {
         [DataField("ReagentId")]
-        public string ReagentId = default!;
+        public string ReagentId = null!;
 
         [DataField("Quantity")]
         public float Quantity = 1.0f;
 
         [DataField("Sprite")]
-        public string? Sprite = null;
+        public string? Sprite;
     }
 
     [Serializable, NetSerializable]
-    public sealed class BorgHypoComponentState : ComponentState
+    public sealed class BorgHypoComponentState(bool uiUpdateNeeded, string currentReagenName) : ComponentState
     {
-        public readonly bool UiUpdateNeeded;
-        public readonly string CurrentReagentName;
-
-        public BorgHypoComponentState(bool uiUpdateNeeded, string currentReagenName)
-        {
-            UiUpdateNeeded = uiUpdateNeeded;
-            CurrentReagentName = currentReagenName;
-        }
-    }
-
-    public sealed partial class ChangeReagentAction : InstantActionEvent
-    {
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class ChangeReagentEvent : EntityEventArgs
-    {
-        public string? ReagentId { get; }
-        public NetEntity Entity { get; }
-
-        public ChangeReagentEvent(string? reagentId, NetEntity entity)
-        {
-            ReagentId = reagentId;
-            Entity = entity;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class OpenBorgHypoUIEvent : EntityEventArgs
-    {
-        public NetEntity Entity { get; }
-
-        public OpenBorgHypoUIEvent(NetEntity entity)
-        {
-            Entity = entity;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public enum BorgHypoUiKey
-    {
-        Key
+        public readonly bool UiUpdateNeeded = uiUpdateNeeded;
+        public readonly string CurrentReagentName = currentReagenName;
     }
 }
