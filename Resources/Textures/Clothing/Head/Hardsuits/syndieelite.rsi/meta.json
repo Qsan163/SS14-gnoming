@@ -9,9 +9,6 @@
     },
     "states": [
         {
-            "name": "icon"
-        },
-        {
             "name": "icon-flash"
         },
         {
@@ -52,6 +49,10 @@
         },
         {
             "name": "off-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
             "directions": 4
         }
     ]

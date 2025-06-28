@@ -70,6 +70,30 @@
         {
             "name": "on-inhand-left",
             "directions": 4
+        },
+        {
+            "name": "inhand-left-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right-light",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left-light",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
         }
     ]
 }
