@@ -209,6 +209,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: NinjaObjectiveGroupMisc
+    maxDifficulty: 1
   #Imperial Space Ninja; End
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
