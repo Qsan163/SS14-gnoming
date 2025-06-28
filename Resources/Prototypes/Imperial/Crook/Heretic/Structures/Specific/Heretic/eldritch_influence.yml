@@ -17,6 +17,8 @@
     volume: -8
     sound:
       path: /Audio/Ambience/anomaly_scary.ogg
+  - type: Visibility
+    layer: 32
 
 - type: entity
   id: EldritchInfluenceIntermediate
