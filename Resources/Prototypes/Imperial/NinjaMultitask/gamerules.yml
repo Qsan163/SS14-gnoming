@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseGameRule
-  id: NinjaSpawn
+  id: NinjaSpawnDebug
   components:
   - type: StationEvent
     weight: 6
