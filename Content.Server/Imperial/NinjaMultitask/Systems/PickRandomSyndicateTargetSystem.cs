@@ -21,11 +21,11 @@ public sealed class PickRandomSyndicateTargetSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RandomSyndicateTargetComponent, ObjectiveAssignedEvent>(OnRandomSyndicateTargetAssigned);
+        SubscribeLocalEvent<PickRandomSyndicateTargetComponent, ObjectiveAssignedEvent>(OnRandomSyndicateTargetAssigned);
     }
 
 
-    private void OnRandomSyndicateTargetAssigned(Entity<RandomSyndicateTargetComponent> ent, ref ObjectiveAssignedEvent args)
+    private void OnRandomSyndicateTargetAssigned(Entity<PickRandomSyndicateTargetComponent> ent, ref ObjectiveAssignedEvent args)
     {
         if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var target))
         {
