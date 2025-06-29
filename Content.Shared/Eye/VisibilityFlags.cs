@@ -10,6 +10,5 @@ namespace Content.Shared.Eye
         Normal = 1 << 0,
         Ghost  = 1 << 1,
         Subfloor = 1 << 2,
-        EldritchInfluence = 1 << 5, // Imperial Space Heretic
     }
 }
