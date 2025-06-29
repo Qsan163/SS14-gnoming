@@ -140,7 +140,7 @@ public sealed class DealDamageConditionSystem : EntitySystem
         }
         if (string.IsNullOrEmpty(title))
             return string.Empty;
-        if (ownedEntity == null || !TryComp<NinjaDamageTargetComponent>(ownedEntity.Value, out var compninjatarget))
+        if (ownedEntity == null || !TryComp<NinjaDamageTargetComponent>(ownedEntity, out var compninjatarget))
         {
             return string.Empty;
         }
