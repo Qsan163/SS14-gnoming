@@ -16,7 +16,6 @@ public sealed class PickRandomSyndicateTargetSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
-    private ISawmill _sawmill = default!;
     public override void Initialize()
     {
         base.Initialize();
