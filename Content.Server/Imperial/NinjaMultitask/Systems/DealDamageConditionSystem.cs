@@ -111,7 +111,7 @@ public sealed class DealDamageConditionSystem : EntitySystem
         {
             return;
         }
-        NetUserId org1 = new NetUserId();
+        var org1 = new NetUserId();
         ICommonSession session = default!;
         if (TryComp<ActorComponent>(args.Origin, out var actor))
         {
@@ -131,8 +131,8 @@ public sealed class DealDamageConditionSystem : EntitySystem
     }
     private string GetTitle(EntityUid target, string title)
     {
-        string targetName = "Unknown";
-        EntityUid? ownedEntity = null;
+        var targetName = "Unknown";
+        var ownedEntity = EntityUid.Invalid;
         if (TryComp<MindComponent>(target, out var mind) && mind.CharacterName != null)
         {
             ownedEntity = mind.OwnedEntity;
@@ -152,7 +152,7 @@ public sealed class DealDamageConditionSystem : EntitySystem
         }
         var mindmg = comp.MinDamage.ToString();
         var maxdmg = comp.MaxDamage.ToString();
-        DamageTypePrototype? damageTypeProto = null;
+        var damageTypeProto = new DamageTypePrototype();
         if (_prototype.TryIndex<DamageTypePrototype>(comp.DamageType, out var proto))
         {
             damageTypeProto = proto;
