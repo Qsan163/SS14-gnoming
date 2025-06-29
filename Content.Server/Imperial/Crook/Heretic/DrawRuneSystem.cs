@@ -1,7 +1,8 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Imperial.Heretic.Components;
-using Content.Shared.Popups;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
@@ -16,7 +17,6 @@ public sealed partial class HereticRuneSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -24,43 +24,7 @@ public sealed partial class HereticRuneSystem : EntitySystem
         SubscribeLocalEvent<DrawRitualRuneDoAfterEvent>(OnRitualDoAfter);
     }
 
-    private void OnAfterInteract(Entity<RuneScribingComponent> ent, ref AfterInteractEvent args)
-    {
-        if (!args.ClickLocation.IsValid(EntityManager))
-            return;
-
-        if (!args.CanReach || !HasComp<HereticComponent>(args.User))
-            return;
-
-        var (animProto, duration) = GetRuneDrawingParameters(ent, args.Used);
-
-        var animEnt = Spawn(animProto, args.ClickLocation);
-        _transform.AttachToGridOrMap(animEnt);
-
-        var usedEntity = args.Used != null ? (EntityUid)args.Used : args.User;
-
-        var doAfterArgs = new DoAfterArgs(
-            EntityManager,
-            args.User,
-            duration,
-            new DrawRitualRuneDoAfterEvent(
-                GetNetEntity(animEnt),
-                GetNetCoordinates(args.ClickLocation)),
-            ent,
-            used: usedEntity)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            NeedHand = true,
-            DistanceThreshold = 2f,
-            Broadcast = true
-        };
-
-        if (!_doAfter.TryStartDoAfter(doAfterArgs))
-            QueueDel(animEnt);
-    }
-
-    private (string animProto, TimeSpan duration) GetRuneDrawingParameters(Entity<RuneScribingComponent> ent, EntityUid? tool)
+    private (EntProtoId animProto, TimeSpan duration) GetRuneDrawingParameters(Entity<RuneScribingComponent> ent, EntityUid? tool)
     {
         var animProto = ent.Comp.AnimationProto;
         var duration = ent.Comp.ScribingDuration;
@@ -74,27 +38,61 @@ public sealed partial class HereticRuneSystem : EntitySystem
         return (animProto, duration);
     }
 
+
+private void OnAfterInteract(Entity<RuneScribingComponent> ent, ref AfterInteractEvent args)
+{
+    if (!args.ClickLocation.IsValid(EntityManager))
+        return;
+
+    if (!args.CanReach || !HasComp<HereticComponent>(args.User))
+        return;
+
+    var (animProto, duration) = GetRuneDrawingParameters(ent, args.Used);
+
+    var animEnt = Spawn(animProto, args.ClickLocation);
+    _transform.AttachToGridOrMap(animEnt);
+
+    var doAfterArgs = new DoAfterArgs(
+        EntityManager,
+        args.User,
+        duration,
+        new DrawRitualRuneDoAfterEvent(
+            GetNetEntity(animEnt),
+            GetNetCoordinates(args.ClickLocation),
+            ent.Comp.RuneProto,
+            ent.Comp.SoundPath),
+        ent,
+        used: args.Used)
+    {
+        BreakOnDamage = true,
+        BreakOnMove = true,
+        NeedHand = ent.Comp.NeedHand,
+        DistanceThreshold = ent.Comp.MaxDistance,
+        Broadcast = true
+    };
+
+    if (!_doAfter.TryStartDoAfter(doAfterArgs))
+        QueueDel(animEnt);
+}
+
     private void OnRitualDoAfter(DrawRitualRuneDoAfterEvent ev)
     {
-        if (GetEntity(ev.AnimationEntity) is { } animEnt)
+        if (GetEntity(ev.AnimationEntity) is { Valid: true } animEnt)
             QueueDel(animEnt);
 
-        if (ev.Cancelled || ev.Handled || !TryGetEntity(ev.Coordinates.NetEntity, out var targetEntity) ||
-            !TryComp<RuneScribingComponent>(ev.Target, out var runeComp))
-        {
+        if (ev.Cancelled || ev.Handled)
             return;
-        }
 
-        var spawnCoords = new EntityCoordinates(targetEntity.Value, ev.Coordinates.Position);
-        var rune = Spawn(runeComp.RuneProto, spawnCoords);
+        var coords = GetCoordinates(ev.Coordinates);
+
+        var rune = Spawn(ev.RuneProto, coords);
         _transform.AttachToGridOrMap(rune);
 
         var audioParams = AudioParams.Default
             .WithVolume(-5f)
             .WithMaxDistance(10f);
-        _audio.PlayPvs(runeComp.SoundPath, rune, audioParams);
+        _audio.PlayPvs(ev.SoundPath, rune, audioParams);
 
-        _popup.PopupEntity(Loc.GetString(runeComp.SuccessMessage), rune, ev.User);
         ev.Handled = true;
     }
 }

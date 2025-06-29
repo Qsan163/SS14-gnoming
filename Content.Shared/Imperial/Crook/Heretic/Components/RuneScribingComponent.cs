@@ -1,29 +1,26 @@
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.Localizations;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Imperial.Heretic.Components;
 
 [RegisterComponent]
 public sealed partial class RuneScribingComponent : Component
 {
-    [DataField("animationProto")]
-    public string AnimationProto = "HereticRuneRitualDrawAnimationEffect";
+    [DataField]
+    public EntProtoId AnimationProto = "HereticRuneRitualDrawAnimationEffect";
 
-    [DataField("scribingDuration", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan ScribingDuration = TimeSpan.FromSeconds(13.625);
 
-    [DataField("runeProto")]
-    public string RuneProto = "HereticRuneRitual";
+    [DataField]
+    public EntProtoId RuneProto = "HereticRuneRitual";
 
-    [DataField("soundPath")]
-    public string SoundPath = "/Audio/Imperial/Crook/Heretic/castsummon.ogg";
+    [DataField]
+    public ResPath SoundPath = new("/Audio/Imperial/Crook/Heretic/castsummon.ogg");
 
-    [DataField("successMessage")]
-    public LocId SuccessMessage = "heretic-rune-scribing-success";
-
-    [DataField("maxDistance")]
+    [DataField]
     public float MaxDistance = 2f;
 
-    [DataField("needHand")]
+    [DataField]
     public bool NeedHand = true;
 }

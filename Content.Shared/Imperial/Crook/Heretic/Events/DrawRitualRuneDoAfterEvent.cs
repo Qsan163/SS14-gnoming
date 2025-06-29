@@ -3,6 +3,8 @@ using Robust.Shared.GameStates;
 using Content.Shared.DoAfter;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 [Serializable, NetSerializable]
 public sealed partial class DrawRitualRuneDoAfterEvent : DoAfterEvent
@@ -14,19 +16,21 @@ public sealed partial class DrawRitualRuneDoAfterEvent : DoAfterEvent
     public NetCoordinates Coordinates;
 
     [DataField]
-    public string RuneProto = "HereticRuneRitual";
+    public EntProtoId RuneProto = "HereticRuneRitual";
 
     [DataField]
-    public string SoundPath = "/Audio/Imperial/Crook/Heretic/castsummon.ogg";
+    public ResPath SoundPath = new("/Audio/Imperial/Crook/Heretic/castsummon.ogg");
 
     private DrawRitualRuneDoAfterEvent()
     {
     }
 
-    public DrawRitualRuneDoAfterEvent(NetEntity animationEntity, NetCoordinates coordinates)
+    public DrawRitualRuneDoAfterEvent(NetEntity animationEntity, NetCoordinates coordinates, EntProtoId runeProto, ResPath soundPath)
     {
         AnimationEntity = animationEntity;
         Coordinates = coordinates;
+        RuneProto = runeProto;
+        SoundPath = soundPath;
     }
 
     public override DoAfterEvent Clone() => this;

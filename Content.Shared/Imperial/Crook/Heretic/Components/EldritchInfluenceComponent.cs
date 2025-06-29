@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Damage;
+using Content.Shared.Localizations;
 
 namespace Content.Shared.Imperial.Heretic.Components;
 
@@ -19,7 +19,7 @@ public sealed partial class EldritchInfluenceComponent : Component
         }
     };
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan BaseDrainTime = TimeSpan.FromSeconds(12);
 
     [DataField]
