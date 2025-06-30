@@ -1,4 +1,5 @@
 using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
@@ -35,7 +36,7 @@ public sealed class DealDamageConditionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DealDamageConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-        SubscribeLocalEvent<DealDamageConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
+        SubscribeLocalEvent<DealDamageConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign, after: new[] { typeof(TargetObjectiveSystem) });
         SubscribeLocalEvent<NinjaDamageTargetComponent, DamageChangedEvent>(OnDamageChanged);
 
     }
