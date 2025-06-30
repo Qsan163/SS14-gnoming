@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseNinjaObjective, BaseKeepAliveObjective]
   id: NinjaImperialKeepAliveObjective
-  name: Защитите цель
-  description: Приложите все усилия, чтобы ваша цель осталась живой. Но есть один нюанс - вам могут помешать. # Imperial Translate
+  name: Protect the target
+  description: Apply every effort to keep the target alive. But there's a catch - you may be hindered # Imperial Translate
   components:
   - type: Objective
     difficulty: 1.5
@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseNinjaObjective
   id: NinjaImperialDealDamageObjective
-  name: Устрашите цель
-  description: Устрашите цель, чтобы она не смела переступать путь твоему клану. # Imperial Translate
+  name: Frighten the target
+  description: Intimidate the target so it doesn't dare cross your clan's path. # Imperial Translate
   components:
   - type: Objective
     difficulty: 1.5
