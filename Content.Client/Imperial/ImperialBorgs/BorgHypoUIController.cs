@@ -39,11 +39,11 @@ public sealed class BorgHypoUIController : UIController
 
     private RadialMenuOption ImperialBorgsRadialOption(ReagentPrototype proto, ImperialBorgsReagent reagent)
     {
-        var spritePath = reagent.Sprite ?? "/Textures/Interface/Misc/beakerlarge.png";
+        var spritePath = reagent.Sprite ?? new ResPath("/Textures/Interface/Misc/beakerlarge.png");
 
         var option = new RadialMenuActionOption<ReagentPrototype>(HandleRadialButtonClick, proto)
         {
-            Sprite = new SpriteSpecifier.Texture(new ResPath(spritePath)),
+            Sprite = new SpriteSpecifier.Texture(spritePath),
             ToolTip = Loc.GetString(proto.LocalizedName)
         };
         return option;
@@ -100,7 +100,7 @@ public sealed class BorgHypoUIController : UIController
         _menu = null;
     }
 
-    private IEnumerable<RadialMenuOption> ConvertToButtons(List<BorgSolution> solutions)
+    private IEnumerable<RadialMenuOption> ConvertToButtons(List<BorgHypoSolution> solutions)
     {
         var models = new List<RadialMenuOption>();
 

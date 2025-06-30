@@ -1,6 +1,6 @@
 using Content.Server.Chemistry.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Actions;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
@@ -12,7 +12,7 @@ namespace Content.Server.Imperial.ImperialBorgs
     public sealed class BorgHypoSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
-        [Dependency] private readonly SolutionContainerSystem _solutionSystem = null!;
+        [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = null!;
 
         public override void Initialize()
         {
