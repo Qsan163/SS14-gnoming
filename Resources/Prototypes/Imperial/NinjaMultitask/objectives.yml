@@ -37,6 +37,20 @@
 - type: weightedRandom
   id: NinjaObjectiveGroupMisc
   weights:
+    NinjaImperialKeepAliveGroup: 1
+    NinjaImperialDealDamageGroup: 1
+    StealResearchGroup: 1
+- type: weightedRandom
+  id: NinjaImperialKeepAliveGroup
+  weights:
     NinjaImperialKeepAliveObjective: 1
+
+- type: weightedRandom
+  id: NinjaImperialDealDamageGroup
+  weights:
     NinjaImperialDealDamageObjective: 1
+
+- type: weightedRandom
+  id: StealResearchGroup
+  weights:
     StealResearchObjective: 1
