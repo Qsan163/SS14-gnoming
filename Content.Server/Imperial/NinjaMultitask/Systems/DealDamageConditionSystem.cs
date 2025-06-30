@@ -106,14 +106,11 @@ public sealed class DealDamageConditionSystem : EntitySystem
         }
         var org1 = EntityUid.Invalid;
         ICommonSession session = default!;
-        if (TryComp<ActorComponent>(args.Origin, out var actor))
-        {
-            session = actor.PlayerSession;
-        }
-        else
+        if (!TryComp<ActorComponent>(args.Origin, out var actor))
         {
             return;
         }
+        session = actor.PlayerSession;
         if (!_mindManager.TryGetMind(session, out var mindIdNinja, out var mindComponentNinja))
             return;
         if (mindComponentNinja.Owner == comp.Ninja && args.Origin == comp.OriginalBody && args.DamageIncreased && damageDelta > 0)
