@@ -5,6 +5,7 @@
   description: Приложите все усилия, чтобы ваша цель осталась живой. Но есть один нюанс - вам могут помешать. # Imperial Translate
   components:
   - type: Objective
+    difficulty: 1.5
     icon:
       sprite: Objects/Weapons/Melee/shields.rsi
       state: riot-icon
@@ -19,6 +20,7 @@
   description: Устрашите цель, чтобы она не смела переступать путь твоему клану. # Imperial Translate
   components:
   - type: Objective
+    difficulty: 1.5
     icon:
       sprite: Objects/Weapons/Melee/survival_knife.rsi
       state: icon

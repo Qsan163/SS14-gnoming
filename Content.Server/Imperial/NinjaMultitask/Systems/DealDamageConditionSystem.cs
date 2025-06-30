@@ -70,17 +70,10 @@ public sealed class DealDamageConditionSystem : EntitySystem
         {
             bodyUid = mindComp.OwnedEntity ?? EntityUid.Invalid;
         }
-        if (TryComp<ActorComponent>(args.Mind.OwnedEntity, out var actor))
-        {
-            comp.Ninja = actor.PlayerSession.UserId;
-            comp.OriginalBody = args.Mind.OwnedEntity;
-        }
-        else
-        {
-            return;
-        }
+        comp.Ninja = args.Mind.Owner;
         var trgt = target ?? EntityUid.Invalid;
         var targcomp = EnsureComp<NinjaDamageTargetComponent>(bodyUid);
+        comp.OriginalBody = args.Mind.OwnedEntity;
         comp.DamageType = _random.Pick(comp.DamageTypePool);
         targcomp.Objective = uid;
         var meta = args.Meta;
@@ -111,11 +104,10 @@ public sealed class DealDamageConditionSystem : EntitySystem
         {
             return;
         }
-        var org1 = new NetUserId();
+        var org1 = EntityUid.Invalid;
         ICommonSession session = default!;
         if (TryComp<ActorComponent>(args.Origin, out var actor))
         {
-            org1 = actor.PlayerSession.UserId;
             session = actor.PlayerSession;
         }
         else
@@ -124,7 +116,7 @@ public sealed class DealDamageConditionSystem : EntitySystem
         }
         if (!_mindManager.TryGetMind(session, out var mindIdNinja, out var mindComponentNinja))
             return;
-        if (org1 == comp.Ninja && args.Origin == comp.OriginalBody && args.DamageIncreased && damageDelta > 0)
+        if (mindComponentNinja.Owner == comp.Ninja && args.Origin == comp.OriginalBody && args.DamageIncreased && damageDelta > 0)
         {
             comp.DamageDealt += damageDelta;
         }

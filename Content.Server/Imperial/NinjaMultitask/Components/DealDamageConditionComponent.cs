@@ -23,7 +23,7 @@ public sealed partial class DealDamageConditionComponent : Component
     [DataField(required: true)]
     public HashSet<ProtoId<DamageTypePrototype>> DamageTypePool = default!;
     [DataField]
-    public NetUserId? Ninja;
+    public EntityUid? Ninja;
     [DataField]
     public EntityUid? OriginalBody;
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
