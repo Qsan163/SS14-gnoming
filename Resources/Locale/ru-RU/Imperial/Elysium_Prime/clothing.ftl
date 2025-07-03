@@ -66,3 +66,4 @@ ent-ClothingOuterSpecialForceCoatDark = тёмное пальто
 ent-ClothingOuterSpecialForceJacketNoRem = куртка
 ent-ClothingOuterSpecialForceJacketRem = куртка
 ent-ClothingOuterSpecialForceSpecialCoat = куртка
+ent-ClothingOuterArmorElysium = бронежилет

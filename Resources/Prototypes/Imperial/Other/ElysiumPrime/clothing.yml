@@ -641,6 +641,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterSpecialForceCoatBlue
   name: blue coat
+  suffix: ElysiumPrime
   components:
   - type: Sprite
     sprite: Imperial/DeadSector/outer_clothing/CoatBlue.rsi
@@ -651,6 +652,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterSpecialForceCoatDark
   name: dark coat
+  suffix: ElysiumPrime
   components:
   - type: Sprite
     sprite: Imperial/DeadSector/outer_clothing/CoatDark.rsi
@@ -661,6 +663,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterSpecialForceJacketNoRem
   name: jacket
+  suffix: ElysiumPrime
   components:
   - type: Sprite
     sprite: Imperial/DeadSector/outer_clothing/JacketNoRem.rsi
@@ -671,6 +674,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterSpecialForceJacketRem
   name: jacket
+  suffix: ElysiumPrime
   components:
   - type: Sprite
     sprite: Imperial/DeadSector/outer_clothing/JacketRem.rsi
@@ -681,8 +685,33 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterSpecialForceSpecialCoat
   name: special coat
+  suffix: ElysiumPrime
   components:
   - type: Sprite
     sprite: Imperial/DeadSector/outer_clothing/SpecialCoat.rsi
   - type: Clothing
     sprite: Imperial/DeadSector/outer_clothing/SpecialCoat.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorElysium
+  name: vest
+  suffix: ElysiumPrime
+  components:
+  - type: Sprite
+    sprite: Imperial/DeadSector/outer_clothing/BasicArmor.rsi
+  - type: Clothing
+    sprite: Imperial/DeadSector/outer_clothing/BasicArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.6
+        Heat: 0.85
+        Cold: 0.85
+        Shock: 0.75
+        Caustic: 0.85
+        Stamina: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
