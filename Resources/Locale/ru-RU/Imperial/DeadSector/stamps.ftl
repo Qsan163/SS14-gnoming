@@ -22,8 +22,8 @@ stamp-component-stamped-name-finance = Председатель Финансов
 ent-JudgeStamp = Штамп Судьи
 stamp-component-stamped-name-judge = Судья
 
-ent-LawyerStamp = Штамп коллегии Юристов
-stamp-component-stamped-name-lawyer = Юридическое Бюро
+ent-ElysiumLawyerStamp = Штамп коллегии Юристов
+stamp-component-stamped-name-elysiumlawyer = Юридическое Бюро
 
 ent-PoliceCaptainStamp = Штамп Капитана
 stamp-component-stamped-name-policecpt = Капитан Полицейского Управления

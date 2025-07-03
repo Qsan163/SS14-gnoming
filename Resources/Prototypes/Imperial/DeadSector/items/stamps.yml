@@ -71,11 +71,11 @@
 - type: entity
   name: stamp
   parent: RubberStampMime
-  id: LawyerStamp
+  id: ElysiumLawyerStamp
   suffix: ElysiumPrime, Other
   components:
     - type: Stamp
-      stampedName: stamp-component-stamped-name-lawyer
+      stampedName: stamp-component-stamped-name-elysiumlawyer
       stampedColor: "#008B8B"
       stampState: "paper_stamp-lawyer"
     - type: Sprite
