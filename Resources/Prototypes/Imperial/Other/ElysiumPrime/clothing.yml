@@ -489,7 +489,7 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: AadministrationBeret
+  id: AdministrationBeret
   name: beret
   suffix: ElysiumPrime
   components:

@@ -49,7 +49,7 @@ ent-ClothingHeadHardsuitSingularitySienceWhite = белый защитный ш�
     .desc = { ent-ClothingHeadHardsuitSingularitySienceBlack.desc }
 
 ent-ClothingHandsGlovesAdministration = перчатки
-ent-AadministrationBeret = берет администратора
+ent-AdministrationBeret = берет администратора
 ent-SpecialForcePoliceBeret = служебный берет
 ent-SpecialForcePoliceCap = служебная кепка
 ent-ClothingAdministrationNeck = плащ администратора
