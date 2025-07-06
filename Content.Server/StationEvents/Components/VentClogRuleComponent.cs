@@ -51,12 +51,12 @@ public sealed partial class VentClogRuleComponent : Component
         "SpaceLube", "SpaceGlue"
     };
 
-    
+    //Imperial Space; Start
     public IReadOnlyList<string> BlacklistedReagents = new[]
     {
         "UnstableBluespaceLiquid", "ConcentratedBluespaceLiquid"
     };
-
+    //Imperial Space; End
     /// <summary>
     /// Quantity of weak reagents to put in the foam.
     /// </summary>
