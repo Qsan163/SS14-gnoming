@@ -354,14 +354,19 @@
   id: AirlockUrbanUSSP
   components:
   - type: Sprite
-    sprite: Imperial/ussp/urbandeco/door.rsi
+    noRot: False 
+    sprite: Imperial/ussp/urbandeco/basic.rsi
+  - type: Wires
+    layoutId: AirlockService
 
 - type: entity
   parent: AirlockGlass
   id: AirlockGlassUrbanUSSP
   components:
   - type: Sprite
-    sprite: Imperial/ussp/urbandeco/doorg.rsi
+    sprite: Imperial/ussp/urbandeco/glass.rsi
+  - type: Wires
+    layoutId: AirlockService
 
 - type: entity
   id: LockerFreezeUrbanUSSP

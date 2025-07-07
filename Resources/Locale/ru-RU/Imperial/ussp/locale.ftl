@@ -101,7 +101,7 @@ ent-USSPguardsmenUniform=Униформа гвардейца
 
 ent-USSPGuardsmenGloves=Гвардейские Перчатки
     .desc=НАШЕ.
-    .suffix=CCCП, гвардия
+    .suffix=СССП, гвардия
 
 ent-USSPHardsuitSoldierHelmet=Шлем военного скафандра
     .desc=Вот так шлем!
@@ -191,7 +191,7 @@ ent-ClothingOuterArmorComissarRed=Парадное пальто комиссар
     .desc=Легкое и удобное пальто. Просто и со стилем.
     .suffix=СССП, Агитком
 
-ent-USSPSTAMP= Печать СССП
+ent-USSPSTAMP=Печать СССП
     .desc=Бумаги , пожалуйста
     .suffix=СССП, НЕ МАППИТЬ
 
@@ -357,7 +357,7 @@ ent-HolopadPortable=Г.О.Л.О-Фон X15
 
 ent-LockerFreezeUrbanUSSP=Холодильник
     .desc=Закрой! Холод выпускаешь!
-    .suffix=CCCП, мап
+    .suffix=СССП, мап
 
 ent-CageHamsterUSSP=Хомячья клетка
     .desc=Личный кабинет Комиссара Иосифа
