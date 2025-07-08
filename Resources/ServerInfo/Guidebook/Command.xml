@@ -1,32 +1,32 @@
 <Document>
-# Command
-The heads of each department come together to form the [color=#1b67a5]Command[/color] department, a force to be reckoned with and the handlers of the station. They usually have access to special equipment and their own rooms. They are often wanted dead.
+# Командование
+Главы всех отделов пришли к тому, что им нужен отдел для управления отделам — [color=#1b67a5]Командный[/color] - сила, с которой лучше не тягаться. Обычно, они имеют доступ к некоторой специальноц экипировке. Некоторые люди очень сильно желают им смерти. 
 
-## Personnel
-[color=#1b67a5]Command[/color] is made up of the heads of each department, being the [color=#9fed58]Head of Personnel[/color], the [color=#cb0000]Head of Security[/color], the [color=#5b97bc]Chief Medical Officer[/color], the [color=#f39f27]Chief Engineer[/color], the [color=#c96dbf]Research Director[/color], the [color=#b18644]Quartermaster[/color] and above all else, the [color=#1b67a5]Captain[/color].
+## Состав
+[color=#1b67a5]Команлный[/color] отдел состоит из глав каждого отдела, то есть [color=#9fed58]Главы Персонала[/color], [color=#cb0000]Главы Службы Безопасности[/color], [color=#5b97bc]Главного Врача[/color], [color=#f39f27]Старшего Инженера[/color], [color=#c96dbf]Научного Руководителя[/color], [color=#b18644]Квартирмейстера[/color] и выше всех их, [color=#1b67a5]Капитана[/color].
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineCaptain" Caption="Captain"/>
+    <GuideEntityEmbed Entity="ToyFigurineCaptain" Caption="Капитан"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="HoP"/>
-    <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="HoS"/>
-    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="CMO"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="
+ГП"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="ГСБ"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="ГВ"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="CE"/>
-    <GuideEntityEmbed Entity="ToyFigurineResearchDirector" Caption="RD"/>
-    <GuideEntityEmbed Entity="ToyFigurineQuartermaster" Caption="QM"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="СИ"/>
+    <GuideEntityEmbed Entity="ToyFigurineResearchDirector" Caption="НР"/>
+    <GuideEntityEmbed Entity="ToyFigurineQuartermaster" Caption="КМ"/>
   </Box>
 
-## Taking Charge
-Congratulations on your promotion! Besides all the extra paperwork, your new [color=#a4885c]responsibilities[/color] include running your department, making changes and choosing priorities, keeping personnel and equipment safe as well as slacking off while your cronies do all the work.
+## Вступление на должность
+Поздравляем с повышением! Если забыть про бумажную работу, ваши новые [color=#a4885c] обязанности[/color] включают в себя поддержание работы вашего отдела, введение изменений и выбор приоритетов в этой самой работе. Нельзя забывать про безопасность Ваших сотрудников и экипировки, за неё Вы тоже в ответе.
 
-Don't forget, you still have a job! Your fancy tools don't earn you a day off, you still have to fill in for any staffing shortages, helping out struggling workers and teaching the newbies.
+Не забывайте, у Вас все ещё есть работа! Ваши красивые и понтовые инструментики за вас её не сделают, идите помогайте новичкам в отделе или выполняйте работу, которой никто не занимается! 
 
-You might get away with just sitting around and letting people resent you, but it's wiser to get active and work alongside them.
-Remember to move your workers around to have them do what they like doing or what they do best.
+Вас может пронести, если Вы будете просто сидеть и смотреть за работой Вашего отдела, но куда лучше быть активным сотрудником и работать вместе с ними. Не забывайте — сотрудники работают лучше не там, где Вы им прикажете, а там где они знают толк. 
 
-## Your Locker
+## Ваш шкафчик
 
 To deal with your new soul-crushing tasks, every head is given special items to lead your subordinates. Most of your new shiny tools can be found in your [color=#a4885c]locker[/color].
   <Box>
