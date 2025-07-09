@@ -2,7 +2,7 @@
 
 # Основные лекарства
 
-Эти лекарства почти всегда полезны для мёда тем или иным путём.
+Эти лекарства почти всегда полезны для меда тем или иным путём.
 
 <GuideReagentEmbed Reagent="Bicaridine"/>
 <GuideReagentEmbed Reagent="Kelotane"/>
@@ -13,9 +13,9 @@
 <GuideReagentEmbed Reagent="DexalinPlus"/>
 <GuideReagentEmbed Reagent="Iron"/>
 
-# Специализированные лекарства 
+# Специализированные лекарства
 
-У этих лекарств есть особенные причины для применения. 
+У этих лекарств есть особенные причины для применения.
 
 <GuideReagentEmbed Reagent="Cryoxadone"/>
 <GuideReagentEmbed Reagent="Epinephrine"/>
@@ -29,7 +29,7 @@
 
 # Всё лекарства
 
-Это список -всех- лекарств, включая выше перечисленные. 
+Это список -всех- лекарств, включая выше перечисленные.
 
 <GuideReagentGroupEmbed Group="Medicine"/>
 

@@ -1,6 +1,6 @@
 <Document>
 # Медицинский отдел
-Это тот отдел, куда идут побитые ребята и это работа сотрудников этого отдела этих побитых ребят лечить. 
+Это тот отдел, куда идут побитые ребята и работа сотрудников этого отдела этих побитых ребят лечить.
 
 ## Сотрудники
 [color=#5b97bc]Медицинский[/color] отдел состоит из Интернов, Докторов, Парамедика, Химиков, Ведущего Врача, Хирурга, Патологоанатома, Главного Врача и, иногда, психолога.
@@ -9,24 +9,24 @@
     <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Доктор"/>
     <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Парамедик"/>
     <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Химик"/>
-    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="ГВ"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="Главный Врач"/>
   </Box>
-  
+
 В данный момент, медицинский отдел разделён на две части:
 
-## Лечение 
+## Лечение
   <Box>
     <GuideEntityEmbed Entity="Brutepack"/>
     <GuideEntityEmbed Entity="Bloodpack"/>
     <GuideEntityEmbed Entity="Ointment"/>
-    <GuideEntityEmbed Entity="Gauze"/>
+    <GuideEntityEmbed Entity="Gauze" Caption="бинт"/>
     <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
   </Box>
 ## Химия
   <Box>
     <GuideEntityEmbed Entity="ChemDispenser"/>
-    <GuideEntityEmbed Entity="LargeBeaker"/>
+    <GuideEntityEmbed Entity="LargeBeaker" Caption="мензурка"/>
     <GuideEntityEmbed Entity="PillCanister"/>
-    <GuideEntityEmbed Entity="ChemMaster"/>
+    <GuideEntityEmbed Entity="ChemMaster" Caption="ХимМастер"/>
   </Box>
 </Document>

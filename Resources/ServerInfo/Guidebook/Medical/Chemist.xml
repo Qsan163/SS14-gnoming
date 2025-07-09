@@ -2,7 +2,7 @@
 # Химик
 Вы. Добились. Этого. Теперь Вы работаете по профессии, где обязательна -математика-. Идите, возьмите мензурку и приготовьтесь варить... Лекарства.
 
-Хммики делают в первую очередь медикаменты, хоть и существует огромное количество других химикатов, которые вы можете просмотреть в разделе Химикаты Руководства.
+Хммики делают в первую очередь медикаменты, хоть и существует огромное количество других химикатов, которые вы можете посмотреть по кноке снизу:
 
 [textlink="Нажмите чтобы посмотреть список всех химикатов." link="Chemicals"]
 
@@ -10,20 +10,20 @@
 
   <Box>
     <GuideEntityEmbed Entity="ChemDispenser"/>
-    <GuideEntityEmbed Entity="ChemBag"/>
-    <GuideEntityEmbed Entity="KitchenReagentGrinder"/>
-    <GuideEntityEmbed Entity="ChemMaster"/>
+    <GuideEntityEmbed Entity="ChemBag" Caption="сумка"/>
+    <GuideEntityEmbed Entity="KitchenReagentGrinder" Caption="измельчитель"/>
+    <GuideEntityEmbed Entity="ChemMaster" Caption="ХимМастер"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="LargeBeaker"/>
+    <GuideEntityEmbed Entity="LargeBeaker" Caption="мензурка"/>
     <GuideEntityEmbed Entity="ChemistryEmptyBottle01"/>
-    <GuideEntityEmbed Entity="HandLabeler"/>
+    <GuideEntityEmbed Entity="HandLabeler" Caption="этикировщик"/>
     <GuideEntityEmbed Entity="Syringe"/>
     <GuideEntityEmbed Entity="PillCanister"/>
   </Box>
 
 ## База:
-Химия — довольно понятная наука, как только Вы начнёте понимать чего ожидать. Вот простой пример приготовления медикаментов:
+Химия — довольно лёгкая наука, но не сразу, а как только Вы начнёте понимать чего от неё ожидать. Вот как Вы будете готовить медикаменты:
 
 - Возьмите мензурку, баночку для таблеток и, если хотите, бутылочки.
 - Вставьте мензурку в Раздатчик Реагентов, а баночку для таблеток (или бутылочку) в ХимМастер.
@@ -44,7 +44,7 @@
 
   <Box>
     <GuideEntityEmbed Entity="ModularGrenade"/>
-    <GuideEntityEmbed Entity="CableApcStack"/>
+    <GuideEntityEmbed Entity="CableApcStack" Caption="НВ провода"/>
     <GuideEntityEmbed Entity="ChemicalPayload"/>
     <GuideEntityEmbed Entity="TimerTrigger"/>
   </Box>
