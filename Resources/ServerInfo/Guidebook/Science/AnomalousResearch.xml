@@ -29,13 +29,13 @@
 
 - [color=#a4885c]Опасность:[/color] This is a numerical value corresponding to the danger of an anomaly.
 - [color=#a4885c]Состояние:[/color] Shown as either decaying, stable, or growing; this is how frequently and widespread the effects will be.
-- [color=#a4885c]Здоровье:[/color] Скрытый показатель. Уменьшается при использовании [color=#a4885c]containment particles[/color] on an anomaly. If you use too many, the anomaly will disappear.
+- [color=#a4885c]Здоровье:[/color] Скрытый показатель. Уменьшается при использовании [color=#a4885c]сдерживающих частиц[/color] на аномалии. При низком показателей здоровья, аномалия пропадает.
 
-## Pulses and Supercritical Events
-The most dangerous effects of anomalies are seen during [color=#a4885c]pulses[/color] and [color=#a4885c]supercritical events[/color].
+## Импульсы и Суперкриты
+Самые опасные эффекты аномалии проявляются при [color=#a4885c]импульсах[/color] и [color=#a4885c]суперкритах[/color].
 
-Pulses are semi-regular bursts of anomalous effects. They're moderately dangerous, scaling with both the severity and stability of an anomaly.
+Импульсы — довольно частые испускания энергии аномалии. Достаточно опасны, но различаются для каждой аномалии. 
 
-Supercritical events are only seen if an anomaly reaches 100% severity. If this happens, the anomaly will swell before disappearing into a catastrophic event. These should be avoided at all costs!
+Суперкриты происходят при достижении опасности в 100%. Если это произойдёт, аномалия создаст катастрофического размера импульс. Такого лучше избегать! 
 
 </Document>
