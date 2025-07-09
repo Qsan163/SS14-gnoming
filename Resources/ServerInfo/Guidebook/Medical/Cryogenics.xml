@@ -2,11 +2,11 @@
 # Криогеника
 Криогеника может казаться сложной для понимания, но быстрая пробежка по диаграмме снизу и, я обещаю, Вы разберётесь! Так вот, давайте и пройдёмся по каждой части схемы:
 
-- Воздух ВНУТРЬ: Воздух входит тут из дистры или из бака с воздухом, давая возможность дышать внутри капсулы, в том числе давая охладителю газ для охлаждения.
+- ВНУТРЬ: Воздух входит тут из дистры или из бака с воздухом, давая возможность дышать внутри капсулы, в том числе давая охладителю газ для охлаждения.
 - Насос: Ограничивает давление в сети, чтобы пациента не раздавило.
 - Охладитель: Охлаждает воздух и пациента в капсуле, позволяя Криоксадону начать свою работу.
 - Фильтры: Удаляют Углекислый газ и Оксид Азота из сети.
-- Воздух НАРУЖУ: Газы из фильтров идут сюда и попадают, или в специальный бак, или в газовый мусоропровод.
+- НАРУЖУ: Газы из фильтров идут сюда и попадают, или в специальный бак, или в газовый мусоропровод.
 <Box>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
@@ -24,10 +24,10 @@
 <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="270"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="GasPort" Caption="воздух НАРУЖУ" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPort" Caption="НАРУЖУ" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
-<GuideEntityEmbed Entity="GasPort" Caption="воздух ВНУТРЬ" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPort" Caption="ВНУТРЬ" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPressurePump" Rotation="90" Caption="насос"/>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
 </Box>
