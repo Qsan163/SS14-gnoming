@@ -11,14 +11,14 @@
   Предметы в игре создаются через меню Создания.
   Вы можете его открыть, нажав [color=yellow][bold][keybind="OpenCraftingMenu"][/bold][/color].
 
-  Если Вы строите объекты, закреплённые к сетке, Вы можете зажать [color=yellow][bold][keybind="EditorLinePlace"][/bold][/color] чтобы проводить линии из нмх, и [color=yellow][bold][keybind="EditorGridPlace"][/bold][/color] чтобы рисовать призраки объектов целыми сетками.
+  Если Вы строите объекты, закреплённые к сетке, зажмите [color=yellow][bold][keybind="EditorLinePlace"][/bold][/color] что провести из них линию и [color=yellow][bold][keybind="EditorGridPlace"][/bold][/color] чтобы рисовать сеткой.
 
-  Если Вы создаёте что-то с множеством ингредиентов, необязательно их все держать в руках. Вы можете положить их на пол или в рюкзак или на стол рядом с Вами, они используются когда будут нужны.
+  Если Вы создаёте что-то с множеством ингредиентов, необязательно их все держать в руках. Положите их на пол, в рюкзак или на стол рядом с Вами. При создании они израсходуются автоматически.
 
   Когда Вы ставите "призрак постройки" где-то в мире, нажмите [color=yellow][bold][keybind="EditorRotateObject"][/bold][/color] чтобы повернуть его по часовой стрелке.
-  Если же Вы строите что-то, что может быть отзрекалено (например, газовые фильтры/насосы), Вы можете найти [color=yellow][bold][keybind="EditorFlipObject"][/bold][/color] чтобы это отразить.
+  Если же Вы строите что-то, что может быть отзрекалено (например, газовые фильтры/насосы), нажмите [color=yellow][bold][keybind="EditorFlipObject"][/bold][/color] чтобы это отразить.
 
-  Вы также можете использовать [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] и [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] для вращения уже построенных незакреплённых объектов.
+  [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] и [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] могут использоваться для вращения уже построенных незакреплённых объектов.
 
 
 
