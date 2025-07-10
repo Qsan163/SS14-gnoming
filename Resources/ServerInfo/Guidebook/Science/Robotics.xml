@@ -1,23 +1,23 @@
 <Document>
-  # Robotics
-  The science team has the ability to create several unique types of robots to suit the station's needs. In order to begin, you'll want to research [color=#a4885c]Robotics[/color] technology.
+  # Робототехника
+  Научный отдел имеет возможность создавать различные типы робов, выполняющий задачи на станции. Перед тем как начать, изучите [color=#a4885c]Основы Робототехники[/color] technology.
 
-  ## Exosuit Fabricator
+  ## Фабрикатор экзокостюмов
 <Box>
-<GuideEntityEmbed Entity="ExosuitFabricator" Caption="Exosuit Fabricator"/>
+<GuideEntityEmbed Entity="ExosuitFabricator" Caption="фабрикатор экзокостюмов"/>
 </Box>
-  The [color=#a4885c]Exosuit Fabricator[/color] is where you'll be printing out most of the parts for your creations, such as:
-  - [textlink="Cyborg" link="Cyborgs"] limbs
-  - Mech parts and equipment
-  - Proximity sensors
+  Фабрикатор экзокостюмов - машина, печатающая большую часть частей для Ваших созданий, например:
+  - Части тела[textlink="киборгов" link="Cyborgs"]
+  - Детали для мехов, а также их оборудование
+  - Датчики движения
 
-  Operating the exosuit fabricator is the same as every other lathe on the station; simply click the fabricator to open the UI, then click the icon for whatever part you want to print.
-  - Are there no recipes? click the [color=#a4885c]sync[/color] button on the UI to check for any new blueprints. If, even then, nothing shows up, you've likely not researched the relevant technology yet!
-  - If a recipe appears grayed-out, it's likely due to a lack of materials. To insert new materials (either [color=#99A3A4]steel[/color], [color=#ECF0F1]plastic[/color], or [color=#AED6F1]glass[/color]), simply click the fabricator while holding said material.
+  Просто нажмите по фабрикатору чтобы открыть Интерфейс, а затем нажмите на желаемый предмет для начала печати.
+  - Не видите рецептов? Проверьте, правильный ли у Вас выбран [color=#a4885c]сервер РнД[/color], нажав на кнопку справа сверху. Если уж даже после выбора сервера ничего не появляется, Вам надо заняться исследованиями технологий.
+  - Если рецепт серого цвета, у машины недостаточно ресурсов. Чтобы добавить новых материалов, нажмите на фабрикатор с помощью [color=#99A3A4]стали[/color], [color=#ECF0F1]пластика[/color] или [color=#AED6F1]стекла[/color].
 
-  Every station starts with a full suite of robotics equipment by default, but you can make another fabricator if [color=#a4885c]Robotics[/color] technology is available, which will allow you to make the respective circuit board.
+  Каждая станция начинает с полным набором машин для создания роботов, но вы можете собрать ещё, исследовав технологию [color=#a4885c]Основ Робототехники[/color], позволяющую создавать соответствующую машинную плату.
 
-  ## Bots
+  ## Боты
 <Box>
 <GuideEntityEmbed Entity="MobCleanBot" Caption="Cleanbot"/>
 <GuideEntityEmbed Entity="MobMedibot" Caption="Medibot"/>

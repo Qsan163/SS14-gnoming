@@ -36,8 +36,6 @@
   id: Xenoarchaeology
   name: guide-entry-xenoarchaeology
   text: "/ServerInfo/Guidebook/Science/Xenoarchaeology.xml"
-  children:
-  - ArtifactReports
 
 - type: guideEntry
   id: Robotics
@@ -45,11 +43,6 @@
   text: "/ServerInfo/Guidebook/Science/Robotics.xml"
   children:
   - Cyborgs
-
-- type: guideEntry
-  id: ArtifactReports
-  name: guide-entry-artifact-reports
-  text: "/ServerInfo/Guidebook/Science/ArtifactReports.xml"
 
 - type: guideEntry
   id: Cyborgs
