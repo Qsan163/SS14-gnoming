@@ -6,7 +6,7 @@
     outerClothing: ClothingOuterArmorBasic
     suitstorage: WeaponRifleLecter
     id: USSPIDCardHead
-    #jumpsuit: ClothingUniformJumpsuitRobotechImperial
+    #jumpsuit: ClothingUniformJumpsuitRobotechImperial На привейте раскомментить
     neck: ClothingNeckCloakHos
     back: BlackShieldBackpack
     shoes: ClothingShoesSwat
@@ -29,7 +29,7 @@
     outerClothing: ArmoredUnloading6B43Raptor
     suitstorage: WeaponRifleLecter
     id: USSPIDCardHead
-    #jumpsuit: ClothingUniformJumpsuitRobotechImperial
+    #jumpsuit: ClothingUniformJumpsuitRobotechImperial На привейте раскомментить
     neck: SquadFightersMantle_Cruenta
     back: BlackShieldBackpack
     shoes: ClothingShoesSwat
@@ -47,12 +47,12 @@
 - type: startingGear
   id: TriviumSoldierUSSPgear
   equipment:
-    #head: ClothingHeadHelmetIibada
+    #head: ClothingHeadHelmetIibada На привейте раскомментить
     mask: VlPCMask
     outerClothing: ArmoredUnloading6B43Raptor
     suitstorage: WeaponRifleLecter
     id: USSPIDCardMain
-    #jumpsuit: ClothingUniformJumpsuitRobotechImperial
+    #jumpsuit: ClothingUniformJumpsuitRobotechImperial На привейте раскомментить
     back: BlackShieldBackpack
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesCombat
@@ -69,10 +69,10 @@
 - type: startingGear
   id: TriviumPilotUSSPgear
   equipment:
-    #head: ClothingHeadHelmetPilot
+    #head: ClothingHeadHelmetPilot На привейте раскомментить
     mask: ClothingMaskGasMinuteMan
     outerClothing: ClothingOuterArmorBasic
-    #jumpsuit: ClothingUniformJumpsuitRobotechImperial
+    #jumpsuit: ClothingUniformJumpsuitRobotechImperial На привейте раскомментить
     back: BlackShieldBackpack
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesCombat
@@ -134,7 +134,7 @@
 - type: startingGear
   id: TriviumSoldierTriviumgear
   equipment:
-    #head: ClothingHeadHelmetIibada
+    #head: ClothingHeadHelmetIibada На привейте раскомментить
     mask: ClothingMaskGasMinuteMan
     outerClothing: ArmoredUnloading6B43Raptor
     suitstorage: WeaponRifleLecter
@@ -156,7 +156,7 @@
 - type: startingGear
   id: TriviumPilotTriviumgear
   equipment:
-    #head: ClothingHeadHelmetPilot
+    #head: ClothingHeadHelmetPilot На привейте раскомментить
     mask: ClothingMaskGasMinuteMan
     outerClothing: ClothingOuterArmorBasic
     jumpsuit: BlackShieldJumpsuit
