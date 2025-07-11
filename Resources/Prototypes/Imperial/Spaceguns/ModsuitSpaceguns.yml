@@ -109,8 +109,6 @@
     lowPressureMultiplier: 1000
   - type: IdentityBlocker
 
-#########################################################################################################################################################################################################
-
 - type: entity
   parent: ClothingControlModsuitBase
   id: ClothingControlModsuitSpaceGunsEngineer
@@ -200,8 +198,6 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: IdentityBlocker
-
-#########################################################################################################################################################################################################
 
 - type: entity
   parent: ClothingControlModsuitBase
@@ -306,8 +302,6 @@
     lowPressureMultiplier: 1000
   - type: IdentityBlocker
 
-#########################################################################################################################################################################################################
-
 - type: entity
   parent: ClothingControlModsuitBase
   id: ClothingControlModsuitSpaceGunsPilot
@@ -407,8 +401,6 @@
     lowPressureMultiplier: 1000
   - type: IdentityBlocker
 
-#########################################################################################################################################################################################################
-
 - type: entity
   parent: ClothingControlModsuitBase
   id: ClothingControlModsuitSpaceGunsMedical
@@ -499,8 +491,6 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
 
-#########################################################################################################################################################################################################
-
 - type: entity
   parent: ClothingControlModsuitBase
   id: ClothingControlModsuitSpaceGunsStormtrooper
@@ -557,7 +547,7 @@
         Stamina: 0.45 # Stamina resistance
   - type: ClothingSpeedModifier
     walkModifier: 1
-    sprintModifier: 1 #same as CMD nuke ops hardsuit
+    sprintModifier: 1 
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetModsuitSpaceGunsStormtrooper
     requiredSlot: outerClothing
@@ -615,8 +605,6 @@
   - type: FlashImmunity
   - type: EyeProtection
   - type: IdentityBlocker
-
-#########################################################################################################################################################################################################
 
 - type: entity
   parent: ClothingControlModsuitBase
