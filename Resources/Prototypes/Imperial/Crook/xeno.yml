@@ -1,5 +1,5 @@
 - type: entity
-  id: XenoStructuralGelBase
+  id: XenoStructuralGel
   name: xeno structural gel
   description: A black liquid substance.
   suffix: Felix
@@ -66,7 +66,7 @@
             - IgnoreSpiderWeb
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: XenoStructuralGelOne
   name: xeno structural gel
   description: A black liquid substance.
@@ -82,7 +82,7 @@
         - state: icon-2
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: XenoStructuralGelTwo
   name: xeno structural gel
   description: A black liquid substance.
@@ -98,7 +98,7 @@
         - state: icon-3
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: XenoStructuralGelRandom
   name: xeno structural gel
   description: A black liquid substance.

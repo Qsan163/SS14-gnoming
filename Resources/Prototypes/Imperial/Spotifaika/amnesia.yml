@@ -1,5 +1,5 @@
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTile
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -23,7 +23,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTile2
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -47,7 +47,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTile3
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -71,7 +71,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTile4
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -95,7 +95,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTile5
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -119,7 +119,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTile6
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -143,7 +143,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGelBase
+  parent: XenoStructuralGel
   id: AmnesiaFleshTileRandom
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
