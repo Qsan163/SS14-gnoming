@@ -29,21 +29,16 @@
         Heat: 0.4
         Stamina: 0.45
   - type: PowerCellDraw
-    drawRate: 1.8 # 200 seconds on the default cell
+    drawRate: 0
   - type: ToggleCellDraw
-  # throwing star ability
   - type: ItemCreator
     action: ActionCreateThrowingStar
-    charge: 14.4
+    charge: 0
     spawnedPrototype: ThrowingStarNinja
     noPowerPopup: ninja-no-power
-  # core ninja suit stuff
   - type: NinjaSuit
-  - type: UseDelay
-    delay: 5 # disable time
   - type: PowerCellSlot
     cellSlotId: cell_slot
-    # throwing in a recharger would bypass glove charging mechanic
     fitsInCharger: false
   - type: ContainerContainer
     containers:
@@ -88,12 +83,19 @@
       Snout: HEAD
 
 - type: entity
-  parent: RedShoesSpaceNinja
-  id: RedShoesSpaceSamurai
+  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  id: ShoesSpaceSamurai
   name: space ninja shoes
   suffix: Crook, Samurai
   description: A pair of nano-enhanced boots with built-in magnetic suction cups. It has a red glow.
   components:
+  - type: Sprite
+    sprite: Imperial/SpiderClan/Clothing/Default/Boots/redninja.rsi
+    state: icon-on
+  - type: Clothing
+    sprite: Imperial/SpiderClan/Clothing/Default/Boots/redninja.rsi
+  - type: NoSlip
+  - type: Magboots
   - type: Unremoveable
   - type: ClothingSpeedModifier
     walkModifier: 1
@@ -118,7 +120,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
     suitstorage: OxygenTank
-    shoes: RedShoesSpaceSamurai
+    shoes: ShoesSpaceSamurai
     mask: ClothingMaskGasSyndicate
     head: ClothingHeadHelmetSpaceSamurai
     gloves: ClothingHandsGlovesCombat
@@ -154,7 +156,8 @@
     - ImperialNutrimentPumpImplanter
     - FreedomImplant
     - ImperialSmokeImplant
-    - ScramImplanter
+    - ScramImplant
+    - EmpImplant
   - type: RandomHumanoidAppearance
     randomizeName: false
 
@@ -191,6 +194,7 @@
     - ImperialNutrimentPumpImplanter
     - FreedomImplant
     - ImperialSmokeImplant
-    - ScramImplanter
+    - ScramImplant
+    - EmpImplant
   - type: RandomHumanoidAppearance
     randomizeName: false
