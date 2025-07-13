@@ -1,5 +1,5 @@
 - type: entity
-  parent: XenoStructuralGel
+  parent: XenoStructuralGelBase
   id: AmnesiaFleshTile
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -11,18 +11,19 @@
   components:
     - type: Sprite
       sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
-      drawdepth: WallMountedItems
       layers:
         - state: icon-1
-          map: ["spiderWebLayer"]
-    - type: RandomSprite
-      available:
-      - spiderWebLayer:
-        icon-1: ""
-        icon-6: ""
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGel
+  parent: XenoStructuralGelBase
   id: AmnesiaFleshTile2
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -34,18 +35,19 @@
   components:
     - type: Sprite
       sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
-      drawdepth: WallMountedItems
       layers:
         - state: icon-2
-          map: ["spiderWebLayer"]
-    - type: RandomSprite
-      available:
-      - spiderWebLayer:
-        icon-2: ""
-        icon-6: ""
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGel
+  parent: XenoStructuralGelBase
   id: AmnesiaFleshTile3
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -57,18 +59,19 @@
   components:
     - type: Sprite
       sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
-      drawdepth: WallMountedItems
       layers:
         - state: icon-3
-          map: ["spiderWebLayer"]
-    - type: RandomSprite
-      available:
-      - spiderWebLayer:
-        icon-3: ""
-        icon-6: ""
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGel
+  parent: XenoStructuralGelBase
   id: AmnesiaFleshTile4
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -80,18 +83,19 @@
   components:
     - type: Sprite
       sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
-      drawdepth: WallMountedItems
       layers:
         - state: icon-4
-          map: ["spiderWebLayer"]
-    - type: RandomSprite
-      available:
-      - spiderWebLayer:
-        icon-3: ""
-        icon-4: ""
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
-  parent: XenoStructuralGel
+  parent: XenoStructuralGelBase
   id: AmnesiaFleshTile5
   name: fibres of flesh
   description: Fleshy organic sediment that pulsates slightly.
@@ -103,12 +107,71 @@
   components:
     - type: Sprite
       sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
-      drawdepth: WallMountedItems
       layers:
         - state: icon-5
-          map: ["spiderWebLayer"]
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  parent: XenoStructuralGelBase
+  id: AmnesiaFleshTile6
+  name: fibres of flesh
+  description: Fleshy organic sediment that pulsates slightly.
+  suffix: Amnesia, Spotifaika
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+    - type: Sprite
+      sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
+      layers:
+        - state: icon-6
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  parent: XenoStructuralGelBase
+  id: AmnesiaFleshTileRandom
+  name: fibres of flesh
+  description: Fleshy organic sediment that pulsates slightly.
+  suffix: Amnesia, Spotifaika, Random
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+    - type: Sprite
+      sprite: Imperial/Spotifaika/Amnesia/flesh.rsi
+      layers:
+        - state: icon-1
+          map: ["random"]
     - type: RandomSprite
       available:
-      - spiderWebLayer:
-        icon-4: ""
-        icon-5: ""
+      - random:
+          icon-1: ""
+          icon-2: ""
+          icon-3: ""
+          icon-4: ""
+          icon-5: ""
+          icon-6: ""
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 900
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
