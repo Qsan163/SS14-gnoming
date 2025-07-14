@@ -29,7 +29,7 @@
   id: SpookySpeakerMessagesAquila
   values:
     prefix: spooky-speaker-aquila-
-    count: 7
+    count: 2
 
 - type: entity
   parent: VendingMachine
